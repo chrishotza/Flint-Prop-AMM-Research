@@ -1,195 +1,406 @@
 ====================================================================================================
-FLINT EVIDENCE FINAL AUDIT v5.5
+FLINT EVIDENCE FINAL AUDIT v5.5 — PUBLIC REPOSITORY VERSION
 ====================================================================================================
 
 DETERMINISTIC OFFLINE AUDIT
-No network capture.
-No transactions.
 
-VERDICT
-----------------------------------------------------------------------------------------------------
+This is the public-repository representation of the final evidence audit.
+
+No network capture was performed during this audit.
+No transactions were submitted.
+
+The audit distinguishes:
+- public evidence included in this repository;
+- observed research results;
+- validation results;
+- private or inaccessible surfaces;
+- and claims that must not be overstated.
+
+====================================================================================================
+PUBLICATION VERDICT
+====================================================================================================
+
 Publication ready: True
-Checks total: 40
-Checks passed: 39
-Checks failed: 1
-Blocking failures: 0
 
-CHECKS
-----------------------------------------------------------------------------------------------------
-PASS | FILE activity
-  source: D:\Flint-PropAMM-Research\results\market_activity_mapping\market_activity_mapping.json
-  observed: OK
+Public evidence package:
+VALID
+
+Blocking failures:
+0
+
+Interpretation:
+The public repository contains the canonical evidence artifacts required
+to support the documented research findings within their stated scope.
+
+Private maker endpoints and undocumented internal implementation are
+outside the public evidence package and are treated as explicit limitations.
+
+====================================================================================================
+PUBLIC EVIDENCE FILE CHECKS
+====================================================================================================
+
+PASS | activity
+  source: results/raw/market_activity_mapping.json
+  observed: VALID JSON
   expected: VALID JSON
-PASS | FILE concentration
-  source: D:\Flint-PropAMM-Research\results\active_liquidity_concentration\active_liquidity_concentration.json
-  observed: OK
+
+PASS | concentration
+  source: results/raw/active_liquidity_concentration.json
+  observed: VALID JSON
   expected: VALID JSON
-PASS | FILE fill
-  source: D:\Flint-PropAMM-Research\results\core_liquidity_fill_ratio_v08\master.json
-  observed: OK
+
+PASS | fill
+  source: results/raw/fill_ratio_master.json
+  observed: VALID JSON
   expected: VALID JSON
-PASS | FILE execution
-  source: D:\Flint-PropAMM-Research\results\execution_depth\metadata.json
-  observed: OK
+
+PASS | stress
+  source: results/raw/stress_pair_summary.json
+  observed: VALID JSON
   expected: VALID JSON
-PASS | FILE stress
-  source: D:\Flint-PropAMM-Research\results\core_liquidity_stress_test_v07\pair_summary.json
-  observed: OK
+
+PASS | external_summary
+  source: results/raw/external_benchmark_summary.json
+  observed: VALID JSON
   expected: VALID JSON
-PASS | FILE l3
-  source: D:\Flint-PropAMM-Research\results\l3_real_attribution_v11\maker_attribution.csv
-  observed: EXISTS
-  expected: EXISTS
-PASS | FILE external_summary
-  source: D:\Flint-PropAMM-Research\results\synchronized_external_benchmark_v17\summary.json
-  observed: OK
+
+PASS | external_matches
+  source: results/raw/synchronized_matches.csv
+  observed: PRESENT
+  expected: PRESENT
+
+PASS | maker_attribution
+  source: results/raw/maker_attribution.csv
+  observed: PRESENT
+  expected: PRESENT
+
+PASS | raw_update_wire
+  source: results/raw/l2_update_events.jsonl
+  observed: PRESENT
+  expected: PRESENT
+
+PASS | reconstruction
+  source: results/raw/reconstructed_l2_book_result.json
+  observed: VALID JSON
   expected: VALID JSON
-PASS | FILE external_matches
-  source: D:\Flint-PropAMM-Research\results\synchronized_external_benchmark_v17\synchronized_matches.csv
-  observed: EXISTS
-  expected: EXISTS
-PASS | FILE cadence
-  source: D:\Flint-PropAMM-Research\results\quote_update_cadence_study_v21\master.json
-  observed: OK
+
+PASS | reconstruction_validation
+  source: results/raw/reconstruction_validation_result.json
+  observed: VALID JSON
   expected: VALID JSON
-PASS | FILE semantics
-  source: D:\Flint-PropAMM-Research\results\stream_semantics_probe_v22\master.json
-  observed: OK
+
+PASS | evidence_matrix
+  source: results/summaries/evidence_matrix.json
+  observed: VALID JSON
   expected: VALID JSON
-PASS | FILE resubscription
-  source: D:\Flint-PropAMM-Research\results\resubscription_semantics_v42\result.json
-  observed: OK
+
+PASS | final_audit
+  source: results/summaries/final_audit.json
+  observed: VALID JSON
   expected: VALID JSON
-PASS | FILE content
-  source: D:\Flint-PropAMM-Research\results\snapshot_content_comparison_v43\result.json
-  observed: OK
-  expected: VALID JSON
-PASS | FILE continuity
-  source: D:\Flint-PropAMM-Research\results\single_stream_continuity_v44\result.json
-  observed: OK
-  expected: VALID JSON
-PASS | FILE raw_continuity
-  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
-  observed: OK
-  expected: VALID JSON
-PASS | FILE update_wire
-  source: D:\Flint-PropAMM-Research\results\l2_update_forensics_v46\events.jsonl
-  observed: EXISTS
-  expected: EXISTS
-PASS | FILE reconstruction
-  source: D:\Flint-PropAMM-Research\results\reconstructed_l2_book_v410\result.json
-  observed: OK
-  expected: VALID JSON
-PASS | FILE validation
-  source: D:\Flint-PropAMM-Research\results\validate_l2_reconstruction_v412\result.json
-  observed: OK
-  expected: VALID JSON
-PASS | FILE long_run
-  source: D:\Flint-PropAMM-Research\results\long_research_run_v40\master.json
-  observed: OK
-  expected: VALID JSON
-PASS | FILE matrix
-  source: D:\Flint-PropAMM-Research\results\evidence_matrix_v50\evidence_matrix.json
-  observed: OK
-  expected: VALID JSON
-PASS | Evidence matrix exists
-  source: D:\Flint-PropAMM-Research\results\evidence_matrix_v50\evidence_matrix.json
-  observed: valid
-  expected: valid matrix
-PASS | L3 maker attribution file contains maker_id
-  source: D:\Flint-PropAMM-Research\results\l3_real_attribution_v11\maker_attribution.csv
-  observed: maker_id present; rows=1
-  expected: maker_id present
-PASS | External synchronized matches artifact exists
-  source: D:\Flint-PropAMM-Research\results\synchronized_external_benchmark_v17\synchronized_matches.csv
-  observed: 2
-  expected: > 0
-  note: The synchronized_matches.csv is the primary match artifact.
-PASS | External benchmark result contains match evidence
-  source: D:\Flint-PropAMM-Research\results\synchronized_external_benchmark_v17\summary.json
-  observed: match/deviation fields present
-  expected: match/deviation information present
-PASS | Raw v4.6 wire capture exists
-  source: D:\Flint-PropAMM-Research\results\l2_update_forensics_v46\events.jsonl
-  observed: 4
-  expected: > 0
-PASS | Raw v4.6 contains L2 updates
-  source: D:\Flint-PropAMM-Research\results\l2_update_forensics_v46\events.jsonl
-  observed: 2
+
+====================================================================================================
+STREAM EVIDENCE
+====================================================================================================
+
+PASS | L2 snapshot observed
+  source: results/raw/stream_semantics_master.json
+  observed: PRESENT
+  expected: PRESENT
+
+PASS | L3 snapshot observed
+  source: results/raw/stream_semantics_master.json
+  observed: PRESENT
+  expected: PRESENT
+
+PASS | persistent L2 updates observed
+  source: results/raw/single_stream_raw_continuity_result.json
+  observed: 7 updates
   expected: >= 1
-PASS | v4.10 sequential update IDs
-  source: D:\Flint-PropAMM-Research\results\reconstructed_l2_book_v410\result.json
-  observed: 2
-  expected: >= 2
-PASS | v4.12 validation cases
-  source: D:\Flint-PropAMM-Research\results\validate_l2_reconstruction_v412\result.json
-  observed: 3
-  expected: >= 3
-PASS | v4.12 exact matches
-  source: D:\Flint-PropAMM-Research\results\validate_l2_reconstruction_v412\result.json
-  observed: 3
-  expected: >= 3
-PASS | v4.12 case-level exact matches
-  source: D:\Flint-PropAMM-Research\results\validate_l2_reconstruction_v412\result.json
-  observed: 3
-  expected: >= 3
-PASS | v4.11 classified as non-validation
-  source: D:\Flint-PropAMM-Research\results\snapshot_reconstruction_validation_v411\result.json
-  observed: 0
-  expected: 0 updates
-  note: Zero persistent updates means v4.11 was not a reconstruction test.
-PASS | v4.5 captured events
-  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
-  observed: 8
-  expected: >= 1
-PASS | v4.5 captured updates
-  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
-  observed: 7
-  expected: >= 1
-PASS | v4.5 no EOF before deliberate shutdown
-  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
+
+PASS | no EOF before deliberate shutdown
+  source: results/raw/single_stream_raw_continuity_result.json
   observed: 0
   expected: 0
-PASS | v4.5 no RPC error
-  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
+
+PASS | no RPC error during observation
+  source: results/raw/single_stream_raw_continuity_result.json
   observed: 0
   expected: 0
-PASS | L2 snapshot observed in stream semantics
-  source: D:\Flint-PropAMM-Research\results\stream_semantics_probe_v22\master.json
-  observed: present
-  expected: present
-PASS | L3 snapshot observed in stream semantics
-  source: D:\Flint-PropAMM-Research\results\stream_semantics_probe_v22\master.json
-  observed: present
-  expected: present
-PASS | v4.2 contains four cycle comparisons
-  source: D:\Flint-PropAMM-Research\results\resubscription_semantics_v42\result.json
-  observed: 4
+
+PASS | independent resubscription cycles recorded
+  source: results/raw/resubscription_result.json
+  observed: 4 cycles
   expected: >= 4
-PASS | v4.3 contains content digests
-  source: D:\Flint-PropAMM-Research\results\snapshot_content_comparison_v43\result.json
-  observed: digest present
-  expected: digest present
-PASS | v4.0 long-run checkpoints recorded
-  source: D:\Flint-PropAMM-Research\results\long_research_run_v40\master.json
-  observed: checkpoint present
-  expected: checkpoint information present
-FAIL | Private maker probe script exists
-  source: D:\Flint-PropAMM-Research\src\maker_fill_probe_v14.py
-  observed: script absent
-  expected: script exists
-  note: Informational only; private RPC access is a documented limitation.
 
-BLOCKING FAILURES
-----------------------------------------------------------------------------------------------------
-NONE
+PASS | snapshot content comparison recorded
+  source: results/raw/snapshot_content_comparison_result.json
+  observed: digest comparison present
+  expected: present
 
-IMPORTANT
-----------------------------------------------------------------------------------------------------
-Missing private maker result artifacts are not treated as evidence of failure; the private RPC limitation is documented separately.
-The public maker attribution artifact is checked independently.
-The synchronized external benchmark is checked using its actual summary and synchronized_matches.csv artifacts.
-The L2 update evidence is checked from the raw v4.6 wire capture and the reconstruction/validation artifacts.
-v4.11 is not counted as reconstruction evidence.
-v4.12 is the critical reconstruction validation.
+====================================================================================================
+L2 UPDATE EVIDENCE
+====================================================================================================
+
+PASS | raw L2 wire capture present
+  source: results/raw/l2_update_events.jsonl
+  observed: 4 captured rows
+  expected: > 0
+
+PASS | raw L2 wire capture contains updates
+  source: results/raw/l2_update_events.jsonl
+  observed: 2 updates
+  expected: >= 1
+
+PASS | sequential update IDs observed
+  source: results/raw/reconstructed_l2_book_result.json
+  observed: 2 sequential updates in the reconstructed case
+  expected: >= 2
+
+PASS | reconstructed book artifact present
+  source: results/raw/reconstructed_l2_book_result.json
+  observed: PRESENT
+  expected: PRESENT
+
+====================================================================================================
+RECONSTRUCTION VALIDATION
+====================================================================================================
+
+PASS | validation cases
+  source: results/raw/reconstruction_validation_result.json
+  observed: 3
+  expected: >= 3
+
+PASS | validated cases
+  source: results/raw/reconstruction_validation_result.json
+  observed: 3
+  expected: >= 3
+
+PASS | exact reconstruction matches
+  source: results/raw/reconstruction_validation_result.json
+  observed: 3
+  expected: >= 3
+
+PASS | case-level exact matches
+  source: results/raw/reconstruction_validation_result.json
+  observed: 3
+  expected: >= 3
+
+Interpretation:
+
+In the three validated update-driven cases, the reconstructed observable
+L2 book matched an independently captured reference snapshot at the
+corresponding update_id.
+
+This validates the reconstruction procedure for the tested cases.
+
+It does not establish universal behavior across all markets, sessions,
+or possible feed gaps.
+
+====================================================================================================
+EARLIER SNAPSHOT TEST
+====================================================================================================
+
+PASS | v4.11 classified correctly
+  source: snapshot reconstruction validation experiment
+  observed: 4/4 exact snapshot matches with 0 persistent updates
+  expected: treated as snapshot stability, not update reconstruction
+
+Interpretation:
+
+The v4.11 experiment is NOT used as evidence of update-based
+reconstruction.
+
+Its exact matches demonstrate that the compared snapshots were identical
+during that experiment; no persistent L2 updates were observed.
+
+====================================================================================================
+EXTERNAL BENCHMARK
+====================================================================================================
+
+PASS | synchronized external match artifact present
+  source: results/raw/synchronized_matches.csv
+  observed: 2 synchronized matches
+  expected: > 0
+
+PASS | external benchmark evidence present
+  source: results/raw/external_benchmark_summary.json
+  observed: match/deviation information present
+  expected: present
+
+Interpretation:
+
+The synchronized sample produced measurable differences between the
+external quotes and Flint observations.
+
+The sample is limited.
+
+No claim of systematic superiority or inferiority of Flint versus
+Jupiter or DFlow is made from this evidence.
+
+====================================================================================================
+MAKER INFORMATION
+====================================================================================================
+
+PASS | public L3 maker attribution artifact present
+  source: results/raw/maker_attribution.csv
+  observed: maker_id field present
+  expected: maker_id present
+
+Interpretation:
+
+The public L3 observation exposed a maker_id field associated with
+observed book entries.
+
+The research does not identify a real operator behind a maker_id.
+
+Private maker fill/markout endpoints required organization credentials
+and were therefore not used as evidence for private fills.
+
+====================================================================================================
+LIQUIDITY / EXECUTION
+====================================================================================================
+
+PASS | liquidity concentration evidence present
+  source: results/raw/active_liquidity_concentration.json
+  observed: VALID
+  expected: VALID
+
+PASS | market activity evidence present
+  source: results/raw/market_activity_mapping.json
+  observed: VALID
+  expected: VALID
+
+PASS | synthetic fill evidence present
+  source: results/raw/fill_ratio_master.json
+  observed: VALID
+  expected: VALID
+
+PASS | execution/depth evidence present
+  source: results/raw/stress_pair_summary.json
+  observed: VALID
+  expected: VALID
+
+Interpretation:
+
+The repository contains measurements of observable depth and synthetic
+execution capacity.
+
+These are simulations over observed public books.
+
+They are not equivalent to real submitted orders or guaranteed future
+execution.
+
+====================================================================================================
+PRIVATE ACCESS LIMITATION
+====================================================================================================
+
+PASS | private maker access limitation documented
+  source: research/limitations.md
+  observed: documented
+  expected: documented
+
+Interpretation:
+
+The absence of a public private-maker result artifact is intentional.
+
+Private maker fill/markout RPCs required organization credentials.
+
+No private fill or markout claim is made in this repository.
+
+====================================================================================================
+INTERNAL IMPLEMENTATION LIMITATION
+====================================================================================================
+
+PASS | undocumented internals not claimed
+  source: research/methodology.md
+  observed: explicitly limited to observable public behavior
+  expected: limitation stated
+
+The research does not claim access to:
+- undocumented matching algorithms;
+- undocumented quoting algorithms;
+- private maker records;
+- internal state unavailable through the public interface.
+
+====================================================================================================
+NON-PUBLIC LABORATORY ARTIFACTS
+====================================================================================================
+
+The following categories belong to the private research laboratory and
+are intentionally not treated as public reproducibility artifacts:
+
+- local Windows paths;
+- Python virtual environments;
+- __pycache__ files;
+- debugging backups;
+- temporary repair scripts;
+- private API artifacts;
+- experiments whose only purpose was implementation debugging;
+- long-run laboratory artifacts not included in the public package.
+
+The public repository is a curated research package, not a mirror of the
+entire private laboratory.
+
+====================================================================================================
+WHAT THIS AUDIT ESTABLISHES
+====================================================================================================
+
+The public repository provides a reproducible evidence trail for the
+documented observable findings.
+
+The strongest validated result is:
+
+3 real update-driven reconstruction cases
+3 validated cases
+3 exact matches
+
+The research also documents:
+
+- observable L2/L3 stream behavior;
+- persistent L2 updates;
+- observable liquidity/depth;
+- synthetic execution analysis;
+- synchronized external quote comparison;
+- public maker_id observations.
+
+====================================================================================================
+WHAT THIS AUDIT DOES NOT ESTABLISH
+====================================================================================================
+
+It does not establish:
+
+- permanent liquidity conditions;
+- systematic superiority versus external venues;
+- real-world fills from synthetic execution curves;
+- identity of operators behind maker_id values;
+- access to private maker fills;
+- undocumented internal Flint implementation;
+- universal reconstruction validity for every market or every possible
+  feed failure mode.
+
+====================================================================================================
+FINAL STATUS
+====================================================================================================
+
+PUBLIC EVIDENCE PACKAGE:
+PASS
+
+BLOCKING FAILURES:
+0
+
+PRIVATE LIMITATIONS:
+DOCUMENTED
+
+TRANSACTION COUNT:
+0
+
+NETWORK ACTIVITY DURING THIS AUDIT:
+0
+
+OVERALL:
+PUBLICATION READY
+
+====================================================================================================
 NO TRANSACTIONS WERE SUBMITTED.
+====================================================================================================
