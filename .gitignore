@@ -1,0 +1,17 @@
+﻿__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.vscode/
+.idea/
+.env
+.env.*
+*.pem
+*.key
+*.crt
+credentials.json
+secrets.json
+*.log
+*.tmp
+*.bak

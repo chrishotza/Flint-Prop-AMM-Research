@@ -1,0 +1,112 @@
+{
+  "experiment": "Flint Conditional L2 Reconstruction Validation v4.12",
+  "host": "mainnet.api.flint.trade:443",
+  "pair": "USDT/USDC",
+  "requested_seconds": 180,
+  "actual_seconds": 153.65599999998813,
+  "initial_snapshot": {
+    "update_id": 1787884095295868,
+    "slot": 442740844,
+    "timestamp_us": 1788049056887913,
+    "book": {
+      "bids": {
+        "0.999968": 10.0,
+        "0.999965": 10.0,
+        "0.999959": 20.0,
+        "0.999955": 25.0,
+        "0.999945": 50.0,
+        "0.99992": 4.0
+      },
+      "asks": {
+        "0.999972": 1.0
+      }
+    },
+    "digest": "b11f8226cd847749124228f0fdff44a360e8f79ac720370ceb0be4a60549f700",
+    "elapsed": 0.25
+  },
+  "persistent_updates": [
+    {
+      "update_id": 1787884095295869,
+      "slot": 442741180,
+      "elapsed": 105.42199999999139
+    },
+    {
+      "update_id": 1787884095295870,
+      "slot": 442741228,
+      "elapsed": 120.31299999999464
+    },
+    {
+      "update_id": 1787884095295871,
+      "slot": 442741332,
+      "elapsed": 153.31299999999464
+    }
+  ],
+  "cases": [
+    {
+      "case": 1,
+      "source_update_id": 1787884095295869,
+      "source_slot": 442741180,
+      "source_elapsed": 105.42199999999139,
+      "reference_update_id": 1787884095295869,
+      "reference_slot": 442741180,
+      "status": "VALIDATED",
+      "used_update_ids": [
+        1787884095295869
+      ],
+      "reconstructed_digest": "522c6d375d00b777db4632ab1340d3450742becd0877de6a4485b89d162f5454",
+      "reference_digest": "522c6d375d00b777db4632ab1340d3450742becd0877de6a4485b89d162f5454",
+      "comparison": {
+        "exact_match": true,
+        "bid_differences": [],
+        "ask_differences": []
+      }
+    },
+    {
+      "case": 2,
+      "source_update_id": 1787884095295870,
+      "source_slot": 442741228,
+      "source_elapsed": 120.31299999999464,
+      "reference_update_id": 1787884095295870,
+      "reference_slot": 442741228,
+      "status": "VALIDATED",
+      "used_update_ids": [
+        1787884095295869,
+        1787884095295870
+      ],
+      "reconstructed_digest": "b11f8226cd847749124228f0fdff44a360e8f79ac720370ceb0be4a60549f700",
+      "reference_digest": "b11f8226cd847749124228f0fdff44a360e8f79ac720370ceb0be4a60549f700",
+      "comparison": {
+        "exact_match": true,
+        "bid_differences": [],
+        "ask_differences": []
+      }
+    },
+    {
+      "case": 3,
+      "source_update_id": 1787884095295871,
+      "source_slot": 442741332,
+      "source_elapsed": 153.31299999999464,
+      "reference_update_id": 1787884095295871,
+      "reference_slot": 442741332,
+      "status": "VALIDATED",
+      "used_update_ids": [
+        1787884095295869,
+        1787884095295870,
+        1787884095295871
+      ],
+      "reconstructed_digest": "522c6d375d00b777db4632ab1340d3450742becd0877de6a4485b89d162f5454",
+      "reference_digest": "522c6d375d00b777db4632ab1340d3450742becd0877de6a4485b89d162f5454",
+      "comparison": {
+        "exact_match": true,
+        "bid_differences": [],
+        "ask_differences": []
+      }
+    }
+  ],
+  "summary": {
+    "cases": 3,
+    "validated": 3,
+    "exact_matches": 3
+  },
+  "generated_at": "2026-08-30T00:20:11.605834+00:00"
+}

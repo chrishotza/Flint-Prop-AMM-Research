@@ -1,0 +1,221 @@
+{
+  "experiment": "Flint Evidence Matrix v5.0",
+  "generated_at": "2026-08-30T01:22:44.626688+00:00",
+  "source_files_found": {
+    "active_liquidity": "D:\\Flint-PropAMM-Research\\results\\active_liquidity_concentration\\active_liquidity_concentration.json",
+    "market_activity": "D:\\Flint-PropAMM-Research\\results\\market_activity_mapping\\market_activity_mapping.json",
+    "fill_ratio": "D:\\Flint-PropAMM-Research\\results\\core_liquidity_fill_ratio_v08\\master.json",
+    "execution_depth": "D:\\Flint-PropAMM-Research\\results\\execution_depth\\metadata.json",
+    "stress_test": "D:\\Flint-PropAMM-Research\\results\\core_liquidity_stress_test_v07\\pair_summary.json",
+    "l3": "D:\\Flint-PropAMM-Research\\results\\l3_real_attribution_v11\\master.json",
+    "external_v17": "D:\\Flint-PropAMM-Research\\results\\synchronized_external_benchmark_v17\\summary.json",
+    "cadence": "D:\\Flint-PropAMM-Research\\results\\quote_update_cadence_study_v21\\master.json",
+    "semantics": "D:\\Flint-PropAMM-Research\\results\\stream_semantics_probe_v22\\master.json",
+    "resubscription": "D:\\Flint-PropAMM-Research\\results\\resubscription_semantics_v42\\result.json",
+    "snapshot_comparison": "D:\\Flint-PropAMM-Research\\results\\snapshot_content_comparison_v43\\result.json",
+    "continuity": "D:\\Flint-PropAMM-Research\\results\\single_stream_continuity_v44\\result.json",
+    "raw_continuity": "D:\\Flint-PropAMM-Research\\results\\single_stream_raw_continuity_v45\\result.json",
+    "reconstruction": "D:\\Flint-PropAMM-Research\\results\\reconstructed_l2_book_v410\\result.json",
+    "reconstruction_validation": "D:\\Flint-PropAMM-Research\\results\\validate_l2_reconstruction_v412\\result.json"
+  },
+  "matrix": [
+    {
+      "claim": "El volumen observado está altamente concentrado en pocos mercados.",
+      "status": "DEMOSTRADO",
+      "observation": "El estudio de concentración encontró TOP 1 = 57.95%, TOP 3 = 76.89%, TOP 5 = 88.18% y TOP 10 = 100.00%.",
+      "evidence": "active_liquidity_concentration.json",
+      "safe_wording": "En la ventana estudiada, una fracción muy grande del volumen reportado estaba concentrada en pocos mercados.",
+      "do_not_claim": "No afirmar que esta concentración sea permanente o estructural en todo momento."
+    },
+    {
+      "claim": "Los mercados observados como activos pueden presentar quotes bilaterales, unilaterales o ausencia de quote observable durante una ventana dada.",
+      "status": "DEMOSTRADO",
+      "observation": "El activity mapping separó ACTIVE_BILATERAL, ACTIVE_ONE_SIDED y ACTIVE_NO_QUOTE.",
+      "evidence": "market_activity_mapping.json",
+      "safe_wording": "La actividad observable durante la ventana puede clasificarse por estado de quote.",
+      "do_not_claim": "No afirmar que ACTIVE_NO_QUOTE implique iliquidez permanente."
+    },
+    {
+      "claim": "La profundidad observable es fuertemente asimétrica entre bid y ask en varios mercados analizados.",
+      "status": "DEMOSTRADO",
+      "observation": "Los estudios de profundidad mostraron, por ejemplo, USDT/USDC con aproximadamente $118 de profundidad bid D10 frente a aproximadamente $1 de ask D10.",
+      "evidence": "execution_depth + core_liquidity_stress_test_v07 + core_liquidity_fill_ratio_v08",
+      "safe_wording": "La profundidad observada fue marcadamente asimétrica en los snapshots estudiados.",
+      "do_not_claim": "No afirmar que esa asimetría sea permanente ni que describa toda la liquidez de Flint."
+    },
+    {
+      "claim": "La capacidad de llenado cae rápidamente al aumentar el tamaño sintético de la orden en los libros observados.",
+      "status": "DEMOSTRADO",
+      "observation": "En fill-ratio v0.8, USDT/USDC podía llenar 100% hasta $100 por el lado SELL en la muestra, pero caía a ~47.2% a $250; en PYUSD/USDC y USD1/USDC el deterioro aparecía antes.",
+      "evidence": "core_liquidity_fill_ratio_v08",
+      "safe_wording": "En la muestra, la capacidad de llenado observable se deteriora con el tamaño de la orden sintética.",
+      "do_not_claim": "No afirmar que esto sea un benchmark de ejecución real ni que una transacción real hubiera obtenido exactamente esos fills."
+    },
+    {
+      "claim": "Los endpoints de fills/markout de maker requieren credenciales de organización.",
+      "status": "DEMOSTRADO",
+      "observation": "GetFills y GetMarkoutSummary devolvieron UNAUTHENTICATED / missing organization credentials.",
+      "evidence": "maker_fill_probe_v14",
+      "safe_wording": "Los endpoints privados no pudieron ser usados sin credenciales de organización.",
+      "do_not_claim": "No afirmar resultados sobre fills privados que no fueron accesibles."
+    },
+    {
+      "claim": "El feed L3 observado expuso maker_id asociado a entradas del libro.",
+      "status": "DEMOSTRADO",
+      "observation": "L3 real attribution mostró maker_id=0 en el snapshot capturado y agrupó las entradas por maker_id.",
+      "evidence": "l3_real_attribution_v11",
+      "safe_wording": "El feed L3 expuso un campo maker_id en las entradas observadas.",
+      "do_not_claim": "No afirmar identidad real de un operador detrás de un maker_id."
+    },
+    {
+      "claim": "Las cotizaciones externas usadas como benchmark mostraron diferencias medibles respecto al top-of-book de Flint durante la ventana sincronizada.",
+      "status": "FUERTEMENTE APOYADO",
+      "observation": "El benchmark v1.7 obtuvo 90 quotes externos y 2 matches sincronizados; mediana absoluta de desviación ~0.298 bps.",
+      "evidence": "synchronized_external_benchmark_v17",
+      "safe_wording": "En las coincidencias sincronizadas observadas, las cotizaciones externas estuvieron ligeramente alejadas del top-of-book de Flint.",
+      "do_not_claim": "No afirmar superioridad sistemática de Flint, ni convertir una muestra de 2 matches en un benchmark estadístico definitivo."
+    },
+    {
+      "claim": "Los feeds externos produjeron múltiples observaciones durante ventanas cortas.",
+      "status": "DEMOSTRADO",
+      "observation": "La prueba de cadence recibió decenas de quotes externos mientras el feed Flint produjo un número mucho menor de snapshots.",
+      "evidence": "quote_update_cadence_study_v21",
+      "safe_wording": "La cadencia observable de los feeds externos fue más alta durante la ventana estudiada.",
+      "do_not_claim": "No interpretar esto como prueba de menor actividad interna en Flint."
+    },
+    {
+      "claim": "Una nueva suscripción al feed L2/L3 comienza con un snapshot inicial observable.",
+      "status": "DEMOSTRADO",
+      "observation": "Los ensayos v4.2 y v4.3 obtuvieron un snapshot inicial en cada nueva suscripción.",
+      "evidence": "resubscription_semantics_v42 + snapshot_content_comparison_v43",
+      "safe_wording": "Una nueva suscripción entregó un snapshot inicial del estado observable.",
+      "do_not_claim": "No afirmar que esto describa el mecanismo interno de inicialización del motor de Flint."
+    },
+    {
+      "claim": "L2 y L3 pueden comenzar alineados en el mismo slot.",
+      "status": "DEMOSTRADO",
+      "observation": "En v4.2 se observaron 4/4 ciclos con mismo slot inicial L2/L3; v4.3 mostró el mismo comportamiento en 3/4 ciclos.",
+      "evidence": "resubscription_semantics_v42 + snapshot_content_comparison_v43",
+      "safe_wording": "L2 y L3 estuvieron alineados por slot en la mayoría de los ciclos observados.",
+      "do_not_claim": "No afirmar que L2 y L3 sean internamente idénticos."
+    },
+    {
+      "claim": "Una suscripción L2 persistente puede producir l2_update después del snapshot inicial.",
+      "status": "DEMOSTRADO",
+      "observation": "v4.5 recibió 1 snapshot y 7 l2_update durante 90 s sin EOF ni RPC error.",
+      "evidence": "single_stream_continuity_v44 + single_stream_raw_continuity_v45",
+      "safe_wording": "Una suscripción L2 persistente observada recibió actualizaciones posteriores al snapshot inicial.",
+      "do_not_claim": "No afirmar una cadencia fija o uniforme."
+    },
+    {
+      "claim": "El stream L2 puede permanecer abierto durante períodos sin eventos observables.",
+      "status": "DEMOSTRADO",
+      "observation": "En v4.5 hubo intervalos de silencio de varios segundos sin EOF ni RPC error; el reader permaneció pendiente hasta el cierre deliberado al final.",
+      "evidence": "single_stream_raw_continuity_v45",
+      "safe_wording": "Durante la ventana observada, el stream permaneció abierto aunque hubo períodos sin eventos.",
+      "do_not_claim": "No afirmar que ausencia de eventos equivalga a ausencia de actividad interna."
+    },
+    {
+      "claim": "L2UpdateEvent contiene pair, metadata, bids y asks.",
+      "status": "DEMOSTRADO",
+      "observation": "La introspección protobuf identificó L2UpdateEvent con exactamente esos campos.",
+      "evidence": "api_pb2 descriptor discovery + l2 update analysis",
+      "safe_wording": "El update público tiene una estructura explícita de niveles bid/ask y metadata.",
+      "do_not_claim": "No afirmar que el esquema protobuf revele por sí solo la implementación interna."
+    },
+    {
+      "claim": "Los updates observados forman una secuencia ordenada por update_id en las muestras analizadas.",
+      "status": "DEMOSTRADO",
+      "observation": "En v4.10 se observaron update_id consecutivos: ...5289 → ...5290 → ...5291.",
+      "evidence": "l2_update_forensics_v47 + reconstructed_l2_book_v410",
+      "safe_wording": "Los updates capturados siguieron una secuencia monotónica y consecutiva en la muestra.",
+      "do_not_claim": "No generalizar a todas las sesiones sin más evidencia."
+    },
+    {
+      "claim": "Los L2 updates observados pueden contener niveles con size=0 junto a nuevos tamaños/precios.",
+      "status": "DEMOSTRADO",
+      "observation": "v4.7/v4.9 mostró pares de precio/tamaño donde algunos niveles tenían tamaño cero.",
+      "evidence": "l2_update_forensics_v47",
+      "safe_wording": "Los updates observados expresan cambios de niveles incluyendo entradas con tamaño cero.",
+      "do_not_claim": "No afirmar independientemente del contexto que size=0 tenga exactamente el mismo significado interno en todos los escenarios."
+    },
+    {
+      "claim": "El libro observable puede reconstruirse correctamente a partir de un snapshot inicial y los updates observados en los casos validados.",
+      "status": "DEMOSTRADO",
+      "observation": "v4.12 produjo 3/3 validaciones exactas: el digest del libro reconstruido coincidió con el snapshot independiente al mismo update_id.",
+      "evidence": "validate_l2_reconstruction_v412",
+      "safe_wording": "En 3 casos reales, snapshot inicial + updates reconstruyeron exactamente el snapshot independiente.",
+      "do_not_claim": "No afirmar universalidad para todos los mercados, todas las ventanas o todos los posibles gaps."
+    },
+    {
+      "claim": "El resultado de v4.11 no era evidencia válida de reconstrucción basada en updates.",
+      "status": "DEMOSTRADO",
+      "observation": "v4.11 produjo 4/4 EXACT MATCH, pero también registró 0 updates persistentes. Los matches eran snapshots idénticos, no reconstrucciones mediante updates.",
+      "evidence": "snapshot_reconstruction_validation_v411",
+      "safe_wording": "v4.11 demuestra estabilidad del snapshot observado, no validación de reconstrucción.",
+      "do_not_claim": "No presentar los 4 exact matches de v4.11 como prueba de reconstrucción."
+    },
+    {
+      "claim": "La corrida denominada de una hora produjo una hora de proceso, pero no una hora continua de captura Flint.",
+      "status": "DEMOSTRADO",
+      "observation": "El proceso llegó a ~3603 s y creó 59 checkpoints, pero los contadores de adquisición Flint quedaron estancados mucho antes del final.",
+      "evidence": "long_research_run_v40",
+      "safe_wording": "La ejecución duró aproximadamente una hora, pero la captura efectiva no fue continua durante toda la ventana.",
+      "do_not_claim": "No usarla como estudio de cadencia de 60 minutos."
+    },
+    {
+      "claim": "Las reconexiones artificiales pueden generar un nuevo snapshot inicial en cada suscripción.",
+      "status": "DEMOSTRADO",
+      "observation": "v4.1 realizó múltiples suscripciones y obtuvo snapshots iniciales repetidos; los CancelledError provenían del manejo del reader/terminación controlada.",
+      "evidence": "stream_resilience_v41 + resubscription_semantics_v42",
+      "safe_wording": "Una nueva suscripción reinicializa el estado observable con un snapshot.",
+      "do_not_claim": "No interpretar los CancelledError artificiales como evidencia de que Flint cerró espontáneamente el stream."
+    },
+    {
+      "claim": "No pudimos validar fills privados de maker directamente.",
+      "status": "INCONCLUSO",
+      "observation": "Los RPC privados requieren organización y devolvieron UNAUTHENTICATED.",
+      "evidence": "maker_fill_probe_v14",
+      "safe_wording": "Los resultados sobre fills privados no fueron accesibles.",
+      "do_not_claim": "No atribuir fill/markout privado a makers concretos a partir de esta investigación."
+    },
+    {
+      "claim": "La investigación demuestra cómo funciona internamente el motor de Flint.",
+      "status": "NO DEBE AFIRMARSE",
+      "observation": "Los experimentos observan la interfaz pública, sus mensajes y el comportamiento observable.",
+      "evidence": "Todos los experimentos",
+      "safe_wording": "La investigación caracteriza la semántica observable del feed público.",
+      "do_not_claim": "No afirmar conocimiento del algoritmo interno, motor de matching o quoting más allá de lo observable."
+    },
+    {
+      "claim": "Los mercados observados sin quote bilateral están permanentemente ilíquidos.",
+      "status": "NO DEBE AFIRMARSE",
+      "observation": "Las propias pruebas sólo establecen el estado durante ventanas de observación.",
+      "evidence": "active_liquidity_concentration + market_activity_mapping",
+      "safe_wording": "El estado observado no debe extrapolarse a una condición permanente.",
+      "do_not_claim": "No afirmar iliquidez permanente."
+    },
+    {
+      "claim": "Las curvas de ejecución sintética equivalen a fills reales que obtendría un trader.",
+      "status": "NO DEBE AFIRMARSE",
+      "observation": "Las curvas fueron simulaciones sobre profundidad observable; no se enviaron transacciones.",
+      "evidence": "core_liquidity_fill_ratio_v08",
+      "safe_wording": "Son simulaciones de ejecución sobre el libro observado.",
+      "do_not_claim": "No presentarlas como resultados de órdenes reales."
+    },
+    {
+      "claim": "Flint es sistemáticamente mejor o peor que Jupiter/DFlow.",
+      "status": "INCONCLUSO",
+      "observation": "La ventana sincronizada tuvo sólo 2 matches utilizables y mostró una desviación medible.",
+      "evidence": "synchronized_external_benchmark_v17",
+      "safe_wording": "Se observaron diferencias puntuales respecto de venues externos.",
+      "do_not_claim": "No afirmar superioridad sistemática con esta muestra."
+    }
+  ],
+  "status_counts": {
+    "DEMOSTRADO": 18,
+    "FUERTEMENTE APOYADO": 1,
+    "INCONCLUSO": 2,
+    "NO DEBE AFIRMARSE": 3
+  }
+}

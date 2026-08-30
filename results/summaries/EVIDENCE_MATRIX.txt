@@ -1,0 +1,414 @@
+====================================================================================================
+FLINT EVIDENCE MATRIX v5.0
+====================================================================================================
+
+Purpose:
+Separar lo observado, lo apoyado y lo que todavía no debe afirmarse.
+
+STATUS DEFINITIONS
+----------------------------------------------------------------------------------------------------
+DEMOSTRADO = observado directamente o validado con un procedimiento reproducible dentro de la muestra.
+FUERTEMENTE APOYADO = varias observaciones apuntan en la misma dirección, pero la muestra todavía es limitada.
+INCONCLUSO = la evidencia no alcanza para resolver la afirmación.
+NO DEBE AFIRMARSE = la evidencia disponible contradice o no permite legítimamente esa formulación.
+
+====================================================================================================
+[1] DEMOSTRADO
+El volumen observado está altamente concentrado en pocos mercados.
+
+OBSERVACIÓN:
+El estudio de concentración encontró TOP 1 = 57.95%, TOP 3 = 76.89%, TOP 5 = 88.18% y TOP 10 = 100.00%.
+
+EVIDENCIA:
+active_liquidity_concentration.json
+
+REDACCIÓN SEGURA:
+En la ventana estudiada, una fracción muy grande del volumen reportado estaba concentrada en pocos mercados.
+
+NO AFIRMAR:
+No afirmar que esta concentración sea permanente o estructural en todo momento.
+
+====================================================================================================
+[2] DEMOSTRADO
+Los mercados observados como activos pueden presentar quotes bilaterales, unilaterales o ausencia de quote observable durante una ventana dada.
+
+OBSERVACIÓN:
+El activity mapping separó ACTIVE_BILATERAL, ACTIVE_ONE_SIDED y ACTIVE_NO_QUOTE.
+
+EVIDENCIA:
+market_activity_mapping.json
+
+REDACCIÓN SEGURA:
+La actividad observable durante la ventana puede clasificarse por estado de quote.
+
+NO AFIRMAR:
+No afirmar que ACTIVE_NO_QUOTE implique iliquidez permanente.
+
+====================================================================================================
+[3] DEMOSTRADO
+La profundidad observable es fuertemente asimétrica entre bid y ask en varios mercados analizados.
+
+OBSERVACIÓN:
+Los estudios de profundidad mostraron, por ejemplo, USDT/USDC con aproximadamente $118 de profundidad bid D10 frente a aproximadamente $1 de ask D10.
+
+EVIDENCIA:
+execution_depth + core_liquidity_stress_test_v07 + core_liquidity_fill_ratio_v08
+
+REDACCIÓN SEGURA:
+La profundidad observada fue marcadamente asimétrica en los snapshots estudiados.
+
+NO AFIRMAR:
+No afirmar que esa asimetría sea permanente ni que describa toda la liquidez de Flint.
+
+====================================================================================================
+[4] DEMOSTRADO
+La capacidad de llenado cae rápidamente al aumentar el tamaño sintético de la orden en los libros observados.
+
+OBSERVACIÓN:
+En fill-ratio v0.8, USDT/USDC podía llenar 100% hasta $100 por el lado SELL en la muestra, pero caía a ~47.2% a $250; en PYUSD/USDC y USD1/USDC el deterioro aparecía antes.
+
+EVIDENCIA:
+core_liquidity_fill_ratio_v08
+
+REDACCIÓN SEGURA:
+En la muestra, la capacidad de llenado observable se deteriora con el tamaño de la orden sintética.
+
+NO AFIRMAR:
+No afirmar que esto sea un benchmark de ejecución real ni que una transacción real hubiera obtenido exactamente esos fills.
+
+====================================================================================================
+[5] DEMOSTRADO
+Los endpoints de fills/markout de maker requieren credenciales de organización.
+
+OBSERVACIÓN:
+GetFills y GetMarkoutSummary devolvieron UNAUTHENTICATED / missing organization credentials.
+
+EVIDENCIA:
+maker_fill_probe_v14
+
+REDACCIÓN SEGURA:
+Los endpoints privados no pudieron ser usados sin credenciales de organización.
+
+NO AFIRMAR:
+No afirmar resultados sobre fills privados que no fueron accesibles.
+
+====================================================================================================
+[6] DEMOSTRADO
+El feed L3 observado expuso maker_id asociado a entradas del libro.
+
+OBSERVACIÓN:
+L3 real attribution mostró maker_id=0 en el snapshot capturado y agrupó las entradas por maker_id.
+
+EVIDENCIA:
+l3_real_attribution_v11
+
+REDACCIÓN SEGURA:
+El feed L3 expuso un campo maker_id en las entradas observadas.
+
+NO AFIRMAR:
+No afirmar identidad real de un operador detrás de un maker_id.
+
+====================================================================================================
+[7] FUERTEMENTE APOYADO
+Las cotizaciones externas usadas como benchmark mostraron diferencias medibles respecto al top-of-book de Flint durante la ventana sincronizada.
+
+OBSERVACIÓN:
+El benchmark v1.7 obtuvo 90 quotes externos y 2 matches sincronizados; mediana absoluta de desviación ~0.298 bps.
+
+EVIDENCIA:
+synchronized_external_benchmark_v17
+
+REDACCIÓN SEGURA:
+En las coincidencias sincronizadas observadas, las cotizaciones externas estuvieron ligeramente alejadas del top-of-book de Flint.
+
+NO AFIRMAR:
+No afirmar superioridad sistemática de Flint, ni convertir una muestra de 2 matches en un benchmark estadístico definitivo.
+
+====================================================================================================
+[8] DEMOSTRADO
+Los feeds externos produjeron múltiples observaciones durante ventanas cortas.
+
+OBSERVACIÓN:
+La prueba de cadence recibió decenas de quotes externos mientras el feed Flint produjo un número mucho menor de snapshots.
+
+EVIDENCIA:
+quote_update_cadence_study_v21
+
+REDACCIÓN SEGURA:
+La cadencia observable de los feeds externos fue más alta durante la ventana estudiada.
+
+NO AFIRMAR:
+No interpretar esto como prueba de menor actividad interna en Flint.
+
+====================================================================================================
+[9] DEMOSTRADO
+Una nueva suscripción al feed L2/L3 comienza con un snapshot inicial observable.
+
+OBSERVACIÓN:
+Los ensayos v4.2 y v4.3 obtuvieron un snapshot inicial en cada nueva suscripción.
+
+EVIDENCIA:
+resubscription_semantics_v42 + snapshot_content_comparison_v43
+
+REDACCIÓN SEGURA:
+Una nueva suscripción entregó un snapshot inicial del estado observable.
+
+NO AFIRMAR:
+No afirmar que esto describa el mecanismo interno de inicialización del motor de Flint.
+
+====================================================================================================
+[10] DEMOSTRADO
+L2 y L3 pueden comenzar alineados en el mismo slot.
+
+OBSERVACIÓN:
+En v4.2 se observaron 4/4 ciclos con mismo slot inicial L2/L3; v4.3 mostró el mismo comportamiento en 3/4 ciclos.
+
+EVIDENCIA:
+resubscription_semantics_v42 + snapshot_content_comparison_v43
+
+REDACCIÓN SEGURA:
+L2 y L3 estuvieron alineados por slot en la mayoría de los ciclos observados.
+
+NO AFIRMAR:
+No afirmar que L2 y L3 sean internamente idénticos.
+
+====================================================================================================
+[11] DEMOSTRADO
+Una suscripción L2 persistente puede producir l2_update después del snapshot inicial.
+
+OBSERVACIÓN:
+v4.5 recibió 1 snapshot y 7 l2_update durante 90 s sin EOF ni RPC error.
+
+EVIDENCIA:
+single_stream_continuity_v44 + single_stream_raw_continuity_v45
+
+REDACCIÓN SEGURA:
+Una suscripción L2 persistente observada recibió actualizaciones posteriores al snapshot inicial.
+
+NO AFIRMAR:
+No afirmar una cadencia fija o uniforme.
+
+====================================================================================================
+[12] DEMOSTRADO
+El stream L2 puede permanecer abierto durante períodos sin eventos observables.
+
+OBSERVACIÓN:
+En v4.5 hubo intervalos de silencio de varios segundos sin EOF ni RPC error; el reader permaneció pendiente hasta el cierre deliberado al final.
+
+EVIDENCIA:
+single_stream_raw_continuity_v45
+
+REDACCIÓN SEGURA:
+Durante la ventana observada, el stream permaneció abierto aunque hubo períodos sin eventos.
+
+NO AFIRMAR:
+No afirmar que ausencia de eventos equivalga a ausencia de actividad interna.
+
+====================================================================================================
+[13] DEMOSTRADO
+L2UpdateEvent contiene pair, metadata, bids y asks.
+
+OBSERVACIÓN:
+La introspección protobuf identificó L2UpdateEvent con exactamente esos campos.
+
+EVIDENCIA:
+api_pb2 descriptor discovery + l2 update analysis
+
+REDACCIÓN SEGURA:
+El update público tiene una estructura explícita de niveles bid/ask y metadata.
+
+NO AFIRMAR:
+No afirmar que el esquema protobuf revele por sí solo la implementación interna.
+
+====================================================================================================
+[14] DEMOSTRADO
+Los updates observados forman una secuencia ordenada por update_id en las muestras analizadas.
+
+OBSERVACIÓN:
+En v4.10 se observaron update_id consecutivos: ...5289 → ...5290 → ...5291.
+
+EVIDENCIA:
+l2_update_forensics_v47 + reconstructed_l2_book_v410
+
+REDACCIÓN SEGURA:
+Los updates capturados siguieron una secuencia monotónica y consecutiva en la muestra.
+
+NO AFIRMAR:
+No generalizar a todas las sesiones sin más evidencia.
+
+====================================================================================================
+[15] DEMOSTRADO
+Los L2 updates observados pueden contener niveles con size=0 junto a nuevos tamaños/precios.
+
+OBSERVACIÓN:
+v4.7/v4.9 mostró pares de precio/tamaño donde algunos niveles tenían tamaño cero.
+
+EVIDENCIA:
+l2_update_forensics_v47
+
+REDACCIÓN SEGURA:
+Los updates observados expresan cambios de niveles incluyendo entradas con tamaño cero.
+
+NO AFIRMAR:
+No afirmar independientemente del contexto que size=0 tenga exactamente el mismo significado interno en todos los escenarios.
+
+====================================================================================================
+[16] DEMOSTRADO
+El libro observable puede reconstruirse correctamente a partir de un snapshot inicial y los updates observados en los casos validados.
+
+OBSERVACIÓN:
+v4.12 produjo 3/3 validaciones exactas: el digest del libro reconstruido coincidió con el snapshot independiente al mismo update_id.
+
+EVIDENCIA:
+validate_l2_reconstruction_v412
+
+REDACCIÓN SEGURA:
+En 3 casos reales, snapshot inicial + updates reconstruyeron exactamente el snapshot independiente.
+
+NO AFIRMAR:
+No afirmar universalidad para todos los mercados, todas las ventanas o todos los posibles gaps.
+
+====================================================================================================
+[17] DEMOSTRADO
+El resultado de v4.11 no era evidencia válida de reconstrucción basada en updates.
+
+OBSERVACIÓN:
+v4.11 produjo 4/4 EXACT MATCH, pero también registró 0 updates persistentes. Los matches eran snapshots idénticos, no reconstrucciones mediante updates.
+
+EVIDENCIA:
+snapshot_reconstruction_validation_v411
+
+REDACCIÓN SEGURA:
+v4.11 demuestra estabilidad del snapshot observado, no validación de reconstrucción.
+
+NO AFIRMAR:
+No presentar los 4 exact matches de v4.11 como prueba de reconstrucción.
+
+====================================================================================================
+[18] DEMOSTRADO
+La corrida denominada de una hora produjo una hora de proceso, pero no una hora continua de captura Flint.
+
+OBSERVACIÓN:
+El proceso llegó a ~3603 s y creó 59 checkpoints, pero los contadores de adquisición Flint quedaron estancados mucho antes del final.
+
+EVIDENCIA:
+long_research_run_v40
+
+REDACCIÓN SEGURA:
+La ejecución duró aproximadamente una hora, pero la captura efectiva no fue continua durante toda la ventana.
+
+NO AFIRMAR:
+No usarla como estudio de cadencia de 60 minutos.
+
+====================================================================================================
+[19] DEMOSTRADO
+Las reconexiones artificiales pueden generar un nuevo snapshot inicial en cada suscripción.
+
+OBSERVACIÓN:
+v4.1 realizó múltiples suscripciones y obtuvo snapshots iniciales repetidos; los CancelledError provenían del manejo del reader/terminación controlada.
+
+EVIDENCIA:
+stream_resilience_v41 + resubscription_semantics_v42
+
+REDACCIÓN SEGURA:
+Una nueva suscripción reinicializa el estado observable con un snapshot.
+
+NO AFIRMAR:
+No interpretar los CancelledError artificiales como evidencia de que Flint cerró espontáneamente el stream.
+
+====================================================================================================
+[20] INCONCLUSO
+No pudimos validar fills privados de maker directamente.
+
+OBSERVACIÓN:
+Los RPC privados requieren organización y devolvieron UNAUTHENTICATED.
+
+EVIDENCIA:
+maker_fill_probe_v14
+
+REDACCIÓN SEGURA:
+Los resultados sobre fills privados no fueron accesibles.
+
+NO AFIRMAR:
+No atribuir fill/markout privado a makers concretos a partir de esta investigación.
+
+====================================================================================================
+[21] NO DEBE AFIRMARSE
+La investigación demuestra cómo funciona internamente el motor de Flint.
+
+OBSERVACIÓN:
+Los experimentos observan la interfaz pública, sus mensajes y el comportamiento observable.
+
+EVIDENCIA:
+Todos los experimentos
+
+REDACCIÓN SEGURA:
+La investigación caracteriza la semántica observable del feed público.
+
+NO AFIRMAR:
+No afirmar conocimiento del algoritmo interno, motor de matching o quoting más allá de lo observable.
+
+====================================================================================================
+[22] NO DEBE AFIRMARSE
+Los mercados observados sin quote bilateral están permanentemente ilíquidos.
+
+OBSERVACIÓN:
+Las propias pruebas sólo establecen el estado durante ventanas de observación.
+
+EVIDENCIA:
+active_liquidity_concentration + market_activity_mapping
+
+REDACCIÓN SEGURA:
+El estado observado no debe extrapolarse a una condición permanente.
+
+NO AFIRMAR:
+No afirmar iliquidez permanente.
+
+====================================================================================================
+[23] NO DEBE AFIRMARSE
+Las curvas de ejecución sintética equivalen a fills reales que obtendría un trader.
+
+OBSERVACIÓN:
+Las curvas fueron simulaciones sobre profundidad observable; no se enviaron transacciones.
+
+EVIDENCIA:
+core_liquidity_fill_ratio_v08
+
+REDACCIÓN SEGURA:
+Son simulaciones de ejecución sobre el libro observado.
+
+NO AFIRMAR:
+No presentarlas como resultados de órdenes reales.
+
+====================================================================================================
+[24] INCONCLUSO
+Flint es sistemáticamente mejor o peor que Jupiter/DFlow.
+
+OBSERVACIÓN:
+La ventana sincronizada tuvo sólo 2 matches utilizables y mostró una desviación medible.
+
+EVIDENCIA:
+synchronized_external_benchmark_v17
+
+REDACCIÓN SEGURA:
+Se observaron diferencias puntuales respecto de venues externos.
+
+NO AFIRMAR:
+No afirmar superioridad sistemática con esta muestra.
+
+====================================================================================================
+STATUS COUNTS
+====================================================================================================
+DEMOSTRADO: 18
+FUERTEMENTE APOYADO: 1
+INCONCLUSO: 2
+NO DEBE AFIRMARSE: 3
+
+RECOMMENDED PUBLIC FRAMING
+----------------------------------------------------------------------------------------------------
+La investigación caracteriza el comportamiento observable de los feeds públicos de Flint mediante experimentos read-only, análisis offline y validaciones independientes.
+Las afirmaciones más fuertes deben apoyarse en resultados reproducibles y deben evitar extrapolar comportamiento observado a mecanismos internos no visibles.
+Los experimentos de ejecución sintética deben presentarse como simulaciones sobre profundidad observable.
+Las limitaciones de acceso a endpoints privados de maker deben quedar explícitas.
+
+NO TRANSACTIONS WERE SUBMITTED.

@@ -1,0 +1,26 @@
+{
+  "experiment": "Flint Core Liquidity Fill Ratio Study v0.8",
+  "host": "mainnet.api.flint.trade:443",
+  "capture_seconds": 60,
+  "target_pairs": [
+    "USDT/USDC",
+    "USD1/USDC",
+    "PYUSD/USDC"
+  ],
+  "order_sizes": [
+    1,
+    5,
+    10,
+    25,
+    50,
+    100,
+    250,
+    500,
+    1000
+  ],
+  "snapshots": 10,
+  "execution_rows": 180,
+  "errors": {},
+  "generated_at": "2026-08-29T18:48:17.001738+00:00",
+  "note": "Partial-fill analysis. Synthetic execution only. No transactions submitted."
+}

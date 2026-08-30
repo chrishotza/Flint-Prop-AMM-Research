@@ -1,0 +1,44 @@
+[
+  {
+    "pair": "USDT/USDC",
+    "snapshots": 4,
+    "two_sided_rate": 1.0,
+    "spread_p10": 0.039999931999386854,
+    "spread_median": 0.039999980000060005,
+    "spread_p90": 0.040000027999290845,
+    "bid_depth_p10": 118.0,
+    "bid_depth_median": 118.0,
+    "bid_depth_p90": 118.0,
+    "ask_depth_p10": 1.0,
+    "ask_depth_median": 1.0,
+    "ask_depth_p90": 1.0
+  },
+  {
+    "pair": "USD1/USDC",
+    "snapshots": 1,
+    "two_sided_rate": 1.0,
+    "spread_p10": 0.10001490221997568,
+    "spread_median": 0.10001490221997568,
+    "spread_p90": 0.10001490221997568,
+    "bid_depth_p10": 23.0,
+    "bid_depth_median": 23.0,
+    "bid_depth_p90": 23.0,
+    "ask_depth_p10": 1.0,
+    "ask_depth_median": 1.0,
+    "ask_depth_p90": 1.0
+  },
+  {
+    "pair": "PYUSD/USDC",
+    "snapshots": 4,
+    "two_sided_rate": 1.0,
+    "spread_p10": 0.10001169136756503,
+    "spread_median": 0.10001515240134581,
+    "spread_p90": 0.10001847341238232,
+    "bid_depth_p10": 23.0,
+    "bid_depth_median": 23.0,
+    "bid_depth_p90": 23.0,
+    "ask_depth_p10": 1.0,
+    "ask_depth_median": 1.0,
+    "ask_depth_p90": 1.0
+  }
+]

@@ -1,0 +1,500 @@
+{
+  "experiment": "Flint Reconstructed L2 Book v4.10",
+  "source": "D:\\Flint-PropAMM-Research\\results\\l2_update_forensics_v46\\events.jsonl",
+  "generated_at": "2026-08-29T23:27:12.231447+00:00",
+  "decoded_events": 3,
+  "snapshots": 1,
+  "updates": [
+    {
+      "update_number": 1,
+      "captured_elapsed": 3.1719999999913853,
+      "slot": 442715215,
+      "timestamp_us": 1788040929039091,
+      "update_id": 1787884095295290,
+      "previous_update_id": 1787884095295289,
+      "update_id_relation": "SEQUENTIAL",
+      "message_bid_levels": 12,
+      "message_ask_levels": 0,
+      "changes": {
+        "bid_added": [
+          {
+            "price": 0.999963,
+            "size": 10.0
+          },
+          {
+            "price": 0.99996,
+            "size": 10.0
+          },
+          {
+            "price": 0.999954,
+            "size": 20.0
+          },
+          {
+            "price": 0.99995,
+            "size": 25.0
+          },
+          {
+            "price": 0.99994,
+            "size": 50.0
+          },
+          {
+            "price": 0.999915,
+            "size": 4.0
+          }
+        ],
+        "bid_modified": [],
+        "bid_removed": [
+          0.999964,
+          0.999961,
+          0.999955,
+          0.999951,
+          0.999941,
+          0.999916
+        ],
+        "ask_added": [],
+        "ask_modified": [],
+        "ask_removed": []
+      },
+      "change_count": 12,
+      "reconstructed_summary": {
+        "bid_levels": 6,
+        "ask_levels": 0,
+        "bid_notional": 118.99372,
+        "ask_notional": 0,
+        "best_bid": 0.999963,
+        "best_ask": null
+      },
+      "reconstructed_book": {
+        "bids": [
+          {
+            "price": 0.999963,
+            "size": 10.0
+          },
+          {
+            "price": 0.99996,
+            "size": 10.0
+          },
+          {
+            "price": 0.999954,
+            "size": 20.0
+          },
+          {
+            "price": 0.99995,
+            "size": 25.0
+          },
+          {
+            "price": 0.99994,
+            "size": 50.0
+          },
+          {
+            "price": 0.999915,
+            "size": 4.0
+          }
+        ],
+        "asks": []
+      },
+      "protobuf_json": {
+        "l2_update": {
+          "pair": {
+            "base_id": "1",
+            "base": "USDT",
+            "quote_id": "0",
+            "quote": "USDC",
+            "label": "USDT/USDC"
+          },
+          "metadata": {
+            "slot": "442715215",
+            "ts": {
+              "micros": "1788040929039091"
+            },
+            "update_id": "1787884095295290"
+          },
+          "bids": [
+            {
+              "price": {
+                "value": "0.999964"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999963"
+              },
+              "size": {
+                "value": "10"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999961"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.99996"
+              },
+              "size": {
+                "value": "10"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999955"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999954"
+              },
+              "size": {
+                "value": "20"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999951"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.99995"
+              },
+              "size": {
+                "value": "25"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999941"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.99994"
+              },
+              "size": {
+                "value": "50"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999916"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999915"
+              },
+              "size": {
+                "value": "4"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "update_number": 2,
+      "captured_elapsed": 8.421999999991385,
+      "slot": 442715231,
+      "timestamp_us": 1788040934288914,
+      "update_id": 1787884095295291,
+      "previous_update_id": 1787884095295290,
+      "update_id_relation": "SEQUENTIAL",
+      "message_bid_levels": 12,
+      "message_ask_levels": 0,
+      "changes": {
+        "bid_added": [
+          {
+            "price": 0.999964,
+            "size": 10.0
+          },
+          {
+            "price": 0.999961,
+            "size": 10.0
+          },
+          {
+            "price": 0.999955,
+            "size": 20.0
+          },
+          {
+            "price": 0.999951,
+            "size": 25.0
+          },
+          {
+            "price": 0.999941,
+            "size": 50.0
+          },
+          {
+            "price": 0.999916,
+            "size": 4.0
+          }
+        ],
+        "bid_modified": [],
+        "bid_removed": [
+          0.999963,
+          0.99996,
+          0.999954,
+          0.99995,
+          0.99994,
+          0.999915
+        ],
+        "ask_added": [],
+        "ask_modified": [],
+        "ask_removed": []
+      },
+      "change_count": 12,
+      "reconstructed_summary": {
+        "bid_levels": 6,
+        "ask_levels": 0,
+        "bid_notional": 118.99383900000001,
+        "ask_notional": 0,
+        "best_bid": 0.999964,
+        "best_ask": null
+      },
+      "reconstructed_book": {
+        "bids": [
+          {
+            "price": 0.999964,
+            "size": 10.0
+          },
+          {
+            "price": 0.999961,
+            "size": 10.0
+          },
+          {
+            "price": 0.999955,
+            "size": 20.0
+          },
+          {
+            "price": 0.999951,
+            "size": 25.0
+          },
+          {
+            "price": 0.999941,
+            "size": 50.0
+          },
+          {
+            "price": 0.999916,
+            "size": 4.0
+          }
+        ],
+        "asks": []
+      },
+      "protobuf_json": {
+        "l2_update": {
+          "pair": {
+            "base_id": "1",
+            "base": "USDT",
+            "quote_id": "0",
+            "quote": "USDC",
+            "label": "USDT/USDC"
+          },
+          "metadata": {
+            "slot": "442715231",
+            "ts": {
+              "micros": "1788040934288914"
+            },
+            "update_id": "1787884095295291"
+          },
+          "bids": [
+            {
+              "price": {
+                "value": "0.999964"
+              },
+              "size": {
+                "value": "10"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999963"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999961"
+              },
+              "size": {
+                "value": "10"
+              }
+            },
+            {
+              "price": {
+                "value": "0.99996"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999955"
+              },
+              "size": {
+                "value": "20"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999954"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999951"
+              },
+              "size": {
+                "value": "25"
+              }
+            },
+            {
+              "price": {
+                "value": "0.99995"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999941"
+              },
+              "size": {
+                "value": "50"
+              }
+            },
+            {
+              "price": {
+                "value": "0.99994"
+              },
+              "size": {
+                "value": "0"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999916"
+              },
+              "size": {
+                "value": "4"
+              }
+            },
+            {
+              "price": {
+                "value": "0.999915"
+              },
+              "size": {
+                "value": "0"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "initial_snapshot": {
+    "metadata": {
+      "slot": 442715140,
+      "timestamp_us": 1788040905488454,
+      "update_id": 1787884095295289
+    },
+    "book": {
+      "bids": [
+        {
+          "price": 0.999964,
+          "size": 10.0
+        },
+        {
+          "price": 0.999961,
+          "size": 10.0
+        },
+        {
+          "price": 0.999955,
+          "size": 20.0
+        },
+        {
+          "price": 0.999951,
+          "size": 25.0
+        },
+        {
+          "price": 0.999941,
+          "size": 50.0
+        },
+        {
+          "price": 0.999916,
+          "size": 4.0
+        }
+      ],
+      "asks": []
+    }
+  },
+  "analysis": {
+    "sequential_update_ids": 2,
+    "forward_gaps": 0,
+    "duplicates": 0,
+    "backward_ids": 0,
+    "size_zero_removals": 12,
+    "positive_level_changes": 12,
+    "final_book": {
+      "bids": [
+        {
+          "price": 0.999964,
+          "size": 10.0
+        },
+        {
+          "price": 0.999961,
+          "size": 10.0
+        },
+        {
+          "price": 0.999955,
+          "size": 20.0
+        },
+        {
+          "price": 0.999951,
+          "size": 25.0
+        },
+        {
+          "price": 0.999941,
+          "size": 50.0
+        },
+        {
+          "price": 0.999916,
+          "size": 4.0
+        }
+      ],
+      "asks": []
+    },
+    "final_summary": {
+      "bid_levels": 6,
+      "ask_levels": 0,
+      "bid_notional": 118.99383900000001,
+      "ask_notional": 0,
+      "best_bid": 0.999964,
+      "best_ask": null
+    }
+  }
+}

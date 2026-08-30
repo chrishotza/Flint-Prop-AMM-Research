@@ -1,0 +1,335 @@
+{
+  "experiment": "Flint Evidence Final Audit v5.5",
+  "generated_at": "2026-08-30T01:33:38.897730+00:00",
+  "checks_total": 40,
+  "checks_passed": 39,
+  "checks_failed": 1,
+  "blocking_failures": 0,
+  "publication_ready": true,
+  "external_known_matches": 2,
+  "wire_rows": 4,
+  "wire_updates": 2,
+  "checks": [
+    {
+      "name": "FILE activity",
+      "source": "D:\\Flint-PropAMM-Research\\results\\market_activity_mapping\\market_activity_mapping.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE concentration",
+      "source": "D:\\Flint-PropAMM-Research\\results\\active_liquidity_concentration\\active_liquidity_concentration.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE fill",
+      "source": "D:\\Flint-PropAMM-Research\\results\\core_liquidity_fill_ratio_v08\\master.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE execution",
+      "source": "D:\\Flint-PropAMM-Research\\results\\execution_depth\\metadata.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE stress",
+      "source": "D:\\Flint-PropAMM-Research\\results\\core_liquidity_stress_test_v07\\pair_summary.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE l3",
+      "source": "D:\\Flint-PropAMM-Research\\results\\l3_real_attribution_v11\\maker_attribution.csv",
+      "passed": true,
+      "observed": "EXISTS",
+      "expected": "EXISTS",
+      "note": ""
+    },
+    {
+      "name": "FILE external_summary",
+      "source": "D:\\Flint-PropAMM-Research\\results\\synchronized_external_benchmark_v17\\summary.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE external_matches",
+      "source": "D:\\Flint-PropAMM-Research\\results\\synchronized_external_benchmark_v17\\synchronized_matches.csv",
+      "passed": true,
+      "observed": "EXISTS",
+      "expected": "EXISTS",
+      "note": ""
+    },
+    {
+      "name": "FILE cadence",
+      "source": "D:\\Flint-PropAMM-Research\\results\\quote_update_cadence_study_v21\\master.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE semantics",
+      "source": "D:\\Flint-PropAMM-Research\\results\\stream_semantics_probe_v22\\master.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE resubscription",
+      "source": "D:\\Flint-PropAMM-Research\\results\\resubscription_semantics_v42\\result.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE content",
+      "source": "D:\\Flint-PropAMM-Research\\results\\snapshot_content_comparison_v43\\result.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE continuity",
+      "source": "D:\\Flint-PropAMM-Research\\results\\single_stream_continuity_v44\\result.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE raw_continuity",
+      "source": "D:\\Flint-PropAMM-Research\\results\\single_stream_raw_continuity_v45\\result.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE update_wire",
+      "source": "D:\\Flint-PropAMM-Research\\results\\l2_update_forensics_v46\\events.jsonl",
+      "passed": true,
+      "observed": "EXISTS",
+      "expected": "EXISTS",
+      "note": ""
+    },
+    {
+      "name": "FILE reconstruction",
+      "source": "D:\\Flint-PropAMM-Research\\results\\reconstructed_l2_book_v410\\result.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE validation",
+      "source": "D:\\Flint-PropAMM-Research\\results\\validate_l2_reconstruction_v412\\result.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE long_run",
+      "source": "D:\\Flint-PropAMM-Research\\results\\long_research_run_v40\\master.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "FILE matrix",
+      "source": "D:\\Flint-PropAMM-Research\\results\\evidence_matrix_v50\\evidence_matrix.json",
+      "passed": true,
+      "observed": "OK",
+      "expected": "VALID JSON",
+      "note": ""
+    },
+    {
+      "name": "Evidence matrix exists",
+      "source": "D:\\Flint-PropAMM-Research\\results\\evidence_matrix_v50\\evidence_matrix.json",
+      "passed": true,
+      "observed": "valid",
+      "expected": "valid matrix",
+      "note": ""
+    },
+    {
+      "name": "L3 maker attribution file contains maker_id",
+      "source": "D:\\Flint-PropAMM-Research\\results\\l3_real_attribution_v11\\maker_attribution.csv",
+      "passed": true,
+      "observed": "maker_id present; rows=1",
+      "expected": "maker_id present",
+      "note": ""
+    },
+    {
+      "name": "External synchronized matches artifact exists",
+      "source": "D:\\Flint-PropAMM-Research\\results\\synchronized_external_benchmark_v17\\synchronized_matches.csv",
+      "passed": true,
+      "observed": 2,
+      "expected": "> 0",
+      "note": "The synchronized_matches.csv is the primary match artifact."
+    },
+    {
+      "name": "External benchmark result contains match evidence",
+      "source": "D:\\Flint-PropAMM-Research\\results\\synchronized_external_benchmark_v17\\summary.json",
+      "passed": true,
+      "observed": "match/deviation fields present",
+      "expected": "match/deviation information present",
+      "note": ""
+    },
+    {
+      "name": "Raw v4.6 wire capture exists",
+      "source": "D:\\Flint-PropAMM-Research\\results\\l2_update_forensics_v46\\events.jsonl",
+      "passed": true,
+      "observed": 4,
+      "expected": "> 0",
+      "note": ""
+    },
+    {
+      "name": "Raw v4.6 contains L2 updates",
+      "source": "D:\\Flint-PropAMM-Research\\results\\l2_update_forensics_v46\\events.jsonl",
+      "passed": true,
+      "observed": 2,
+      "expected": ">= 1",
+      "note": ""
+    },
+    {
+      "name": "v4.10 sequential update IDs",
+      "source": "D:\\Flint-PropAMM-Research\\results\\reconstructed_l2_book_v410\\result.json",
+      "passed": true,
+      "observed": 2,
+      "expected": ">= 2",
+      "note": ""
+    },
+    {
+      "name": "v4.12 validation cases",
+      "source": "D:\\Flint-PropAMM-Research\\results\\validate_l2_reconstruction_v412\\result.json",
+      "passed": true,
+      "observed": 3,
+      "expected": ">= 3",
+      "note": ""
+    },
+    {
+      "name": "v4.12 exact matches",
+      "source": "D:\\Flint-PropAMM-Research\\results\\validate_l2_reconstruction_v412\\result.json",
+      "passed": true,
+      "observed": 3,
+      "expected": ">= 3",
+      "note": ""
+    },
+    {
+      "name": "v4.12 case-level exact matches",
+      "source": "D:\\Flint-PropAMM-Research\\results\\validate_l2_reconstruction_v412\\result.json",
+      "passed": true,
+      "observed": 3,
+      "expected": ">= 3",
+      "note": ""
+    },
+    {
+      "name": "v4.11 classified as non-validation",
+      "source": "D:\\Flint-PropAMM-Research\\results\\snapshot_reconstruction_validation_v411\\result.json",
+      "passed": true,
+      "observed": 0,
+      "expected": "0 updates",
+      "note": "Zero persistent updates means v4.11 was not a reconstruction test."
+    },
+    {
+      "name": "v4.5 captured events",
+      "source": "D:\\Flint-PropAMM-Research\\results\\single_stream_raw_continuity_v45\\result.json",
+      "passed": true,
+      "observed": 8,
+      "expected": ">= 1",
+      "note": ""
+    },
+    {
+      "name": "v4.5 captured updates",
+      "source": "D:\\Flint-PropAMM-Research\\results\\single_stream_raw_continuity_v45\\result.json",
+      "passed": true,
+      "observed": 7,
+      "expected": ">= 1",
+      "note": ""
+    },
+    {
+      "name": "v4.5 no EOF before deliberate shutdown",
+      "source": "D:\\Flint-PropAMM-Research\\results\\single_stream_raw_continuity_v45\\result.json",
+      "passed": true,
+      "observed": 0,
+      "expected": "0",
+      "note": ""
+    },
+    {
+      "name": "v4.5 no RPC error",
+      "source": "D:\\Flint-PropAMM-Research\\results\\single_stream_raw_continuity_v45\\result.json",
+      "passed": true,
+      "observed": 0,
+      "expected": "0",
+      "note": ""
+    },
+    {
+      "name": "L2 snapshot observed in stream semantics",
+      "source": "D:\\Flint-PropAMM-Research\\results\\stream_semantics_probe_v22\\master.json",
+      "passed": true,
+      "observed": "present",
+      "expected": "present",
+      "note": ""
+    },
+    {
+      "name": "L3 snapshot observed in stream semantics",
+      "source": "D:\\Flint-PropAMM-Research\\results\\stream_semantics_probe_v22\\master.json",
+      "passed": true,
+      "observed": "present",
+      "expected": "present",
+      "note": ""
+    },
+    {
+      "name": "v4.2 contains four cycle comparisons",
+      "source": "D:\\Flint-PropAMM-Research\\results\\resubscription_semantics_v42\\result.json",
+      "passed": true,
+      "observed": 4,
+      "expected": ">= 4",
+      "note": ""
+    },
+    {
+      "name": "v4.3 contains content digests",
+      "source": "D:\\Flint-PropAMM-Research\\results\\snapshot_content_comparison_v43\\result.json",
+      "passed": true,
+      "observed": "digest present",
+      "expected": "digest present",
+      "note": ""
+    },
+    {
+      "name": "v4.0 long-run checkpoints recorded",
+      "source": "D:\\Flint-PropAMM-Research\\results\\long_research_run_v40\\master.json",
+      "passed": true,
+      "observed": "checkpoint present",
+      "expected": "checkpoint information present",
+      "note": ""
+    },
+    {
+      "name": "Private maker probe script exists",
+      "source": "D:\\Flint-PropAMM-Research\\src\\maker_fill_probe_v14.py",
+      "passed": false,
+      "observed": "script absent",
+      "expected": "script exists",
+      "note": "Informational only; private RPC access is a documented limitation."
+    }
+  ],
+  "blocking_detail": []
+}

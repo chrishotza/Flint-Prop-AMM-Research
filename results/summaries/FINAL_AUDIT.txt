@@ -1,0 +1,195 @@
+====================================================================================================
+FLINT EVIDENCE FINAL AUDIT v5.5
+====================================================================================================
+
+DETERMINISTIC OFFLINE AUDIT
+No network capture.
+No transactions.
+
+VERDICT
+----------------------------------------------------------------------------------------------------
+Publication ready: True
+Checks total: 40
+Checks passed: 39
+Checks failed: 1
+Blocking failures: 0
+
+CHECKS
+----------------------------------------------------------------------------------------------------
+PASS | FILE activity
+  source: D:\Flint-PropAMM-Research\results\market_activity_mapping\market_activity_mapping.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE concentration
+  source: D:\Flint-PropAMM-Research\results\active_liquidity_concentration\active_liquidity_concentration.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE fill
+  source: D:\Flint-PropAMM-Research\results\core_liquidity_fill_ratio_v08\master.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE execution
+  source: D:\Flint-PropAMM-Research\results\execution_depth\metadata.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE stress
+  source: D:\Flint-PropAMM-Research\results\core_liquidity_stress_test_v07\pair_summary.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE l3
+  source: D:\Flint-PropAMM-Research\results\l3_real_attribution_v11\maker_attribution.csv
+  observed: EXISTS
+  expected: EXISTS
+PASS | FILE external_summary
+  source: D:\Flint-PropAMM-Research\results\synchronized_external_benchmark_v17\summary.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE external_matches
+  source: D:\Flint-PropAMM-Research\results\synchronized_external_benchmark_v17\synchronized_matches.csv
+  observed: EXISTS
+  expected: EXISTS
+PASS | FILE cadence
+  source: D:\Flint-PropAMM-Research\results\quote_update_cadence_study_v21\master.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE semantics
+  source: D:\Flint-PropAMM-Research\results\stream_semantics_probe_v22\master.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE resubscription
+  source: D:\Flint-PropAMM-Research\results\resubscription_semantics_v42\result.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE content
+  source: D:\Flint-PropAMM-Research\results\snapshot_content_comparison_v43\result.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE continuity
+  source: D:\Flint-PropAMM-Research\results\single_stream_continuity_v44\result.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE raw_continuity
+  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE update_wire
+  source: D:\Flint-PropAMM-Research\results\l2_update_forensics_v46\events.jsonl
+  observed: EXISTS
+  expected: EXISTS
+PASS | FILE reconstruction
+  source: D:\Flint-PropAMM-Research\results\reconstructed_l2_book_v410\result.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE validation
+  source: D:\Flint-PropAMM-Research\results\validate_l2_reconstruction_v412\result.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE long_run
+  source: D:\Flint-PropAMM-Research\results\long_research_run_v40\master.json
+  observed: OK
+  expected: VALID JSON
+PASS | FILE matrix
+  source: D:\Flint-PropAMM-Research\results\evidence_matrix_v50\evidence_matrix.json
+  observed: OK
+  expected: VALID JSON
+PASS | Evidence matrix exists
+  source: D:\Flint-PropAMM-Research\results\evidence_matrix_v50\evidence_matrix.json
+  observed: valid
+  expected: valid matrix
+PASS | L3 maker attribution file contains maker_id
+  source: D:\Flint-PropAMM-Research\results\l3_real_attribution_v11\maker_attribution.csv
+  observed: maker_id present; rows=1
+  expected: maker_id present
+PASS | External synchronized matches artifact exists
+  source: D:\Flint-PropAMM-Research\results\synchronized_external_benchmark_v17\synchronized_matches.csv
+  observed: 2
+  expected: > 0
+  note: The synchronized_matches.csv is the primary match artifact.
+PASS | External benchmark result contains match evidence
+  source: D:\Flint-PropAMM-Research\results\synchronized_external_benchmark_v17\summary.json
+  observed: match/deviation fields present
+  expected: match/deviation information present
+PASS | Raw v4.6 wire capture exists
+  source: D:\Flint-PropAMM-Research\results\l2_update_forensics_v46\events.jsonl
+  observed: 4
+  expected: > 0
+PASS | Raw v4.6 contains L2 updates
+  source: D:\Flint-PropAMM-Research\results\l2_update_forensics_v46\events.jsonl
+  observed: 2
+  expected: >= 1
+PASS | v4.10 sequential update IDs
+  source: D:\Flint-PropAMM-Research\results\reconstructed_l2_book_v410\result.json
+  observed: 2
+  expected: >= 2
+PASS | v4.12 validation cases
+  source: D:\Flint-PropAMM-Research\results\validate_l2_reconstruction_v412\result.json
+  observed: 3
+  expected: >= 3
+PASS | v4.12 exact matches
+  source: D:\Flint-PropAMM-Research\results\validate_l2_reconstruction_v412\result.json
+  observed: 3
+  expected: >= 3
+PASS | v4.12 case-level exact matches
+  source: D:\Flint-PropAMM-Research\results\validate_l2_reconstruction_v412\result.json
+  observed: 3
+  expected: >= 3
+PASS | v4.11 classified as non-validation
+  source: D:\Flint-PropAMM-Research\results\snapshot_reconstruction_validation_v411\result.json
+  observed: 0
+  expected: 0 updates
+  note: Zero persistent updates means v4.11 was not a reconstruction test.
+PASS | v4.5 captured events
+  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
+  observed: 8
+  expected: >= 1
+PASS | v4.5 captured updates
+  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
+  observed: 7
+  expected: >= 1
+PASS | v4.5 no EOF before deliberate shutdown
+  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
+  observed: 0
+  expected: 0
+PASS | v4.5 no RPC error
+  source: D:\Flint-PropAMM-Research\results\single_stream_raw_continuity_v45\result.json
+  observed: 0
+  expected: 0
+PASS | L2 snapshot observed in stream semantics
+  source: D:\Flint-PropAMM-Research\results\stream_semantics_probe_v22\master.json
+  observed: present
+  expected: present
+PASS | L3 snapshot observed in stream semantics
+  source: D:\Flint-PropAMM-Research\results\stream_semantics_probe_v22\master.json
+  observed: present
+  expected: present
+PASS | v4.2 contains four cycle comparisons
+  source: D:\Flint-PropAMM-Research\results\resubscription_semantics_v42\result.json
+  observed: 4
+  expected: >= 4
+PASS | v4.3 contains content digests
+  source: D:\Flint-PropAMM-Research\results\snapshot_content_comparison_v43\result.json
+  observed: digest present
+  expected: digest present
+PASS | v4.0 long-run checkpoints recorded
+  source: D:\Flint-PropAMM-Research\results\long_research_run_v40\master.json
+  observed: checkpoint present
+  expected: checkpoint information present
+FAIL | Private maker probe script exists
+  source: D:\Flint-PropAMM-Research\src\maker_fill_probe_v14.py
+  observed: script absent
+  expected: script exists
+  note: Informational only; private RPC access is a documented limitation.
+
+BLOCKING FAILURES
+----------------------------------------------------------------------------------------------------
+NONE
+
+IMPORTANT
+----------------------------------------------------------------------------------------------------
+Missing private maker result artifacts are not treated as evidence of failure; the private RPC limitation is documented separately.
+The public maker attribution artifact is checked independently.
+The synchronized external benchmark is checked using its actual summary and synchronized_matches.csv artifacts.
+The L2 update evidence is checked from the raw v4.6 wire capture and the reconstruction/validation artifacts.
+v4.11 is not counted as reconstruction evidence.
+v4.12 is the critical reconstruction validation.
+NO TRANSACTIONS WERE SUBMITTED.

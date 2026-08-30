@@ -1,0 +1,68 @@
+{
+  "summary": {
+    "experiment": "Flint Synchronized Benchmark Analyzer v1.7",
+    "source": "D:\\Flint-PropAMM-Research\\results\\synchronized_external_benchmark_v16\\master.json",
+    "flint_observations": 3,
+    "external_raw_observations": 90,
+    "external_valid_observations": 90,
+    "synchronized_matches": 2,
+    "venues": [
+      "dflow",
+      "jupiter"
+    ],
+    "generated_at": "2026-08-29T19:02:00.935527+00:00",
+    "methodology": "External protobuf quotes reparsed from raw capture. Bid/ask extracted from nested price.value fields and timestamp from received_ts.micros. Each Flint L2 observation is paired with the nearest external quote within 2 seconds."
+  },
+  "matches": [
+    {
+      "timestamp_us": 1788030024438300,
+      "flint_slot": 442680798,
+      "flint_mid": 0.9999709999999999,
+      "flint_bid": 0.999969,
+      "flint_ask": 0.999973,
+      "flint_spread_bps": 0.04000116003368098,
+      "flint_bid_depth_10": 117.99451299999998,
+      "flint_ask_depth_10": 0.999973,
+      "external_venue": "dflow",
+      "external_timestamp_us": 1788030024128732,
+      "external_bid": 0.9999976067965766,
+      "external_ask": 1.0000014305020464,
+      "external_mid": 0.9999995186493115,
+      "external_spread_bps": 0.038237073103517386,
+      "external_bid_size": 9999.985695,
+      "external_ask_size": 9999.985695,
+      "time_delta_ms": 309.568,
+      "mid_deviation_bps": -0.2851866303900446,
+      "mid_abs_deviation_bps": 0.2851866303900446,
+      "flint_bid_vs_external_bid_bps": -0.286068650386164,
+      "external_ask_vs_flint_ask_bps": 0.28430461376539473,
+      "external_bid_routes": "",
+      "external_ask_routes": ""
+    },
+    {
+      "timestamp_us": 1788030057588287,
+      "flint_slot": 442680902,
+      "flint_mid": 0.99997,
+      "flint_bid": 0.999968,
+      "flint_ask": 0.999972,
+      "flint_spread_bps": 0.04000120003604108,
+      "flint_bid_depth_10": 117.99439500000001,
+      "flint_ask_depth_10": 0.999972,
+      "external_venue": "dflow",
+      "external_timestamp_us": 1788030057241482,
+      "external_bid": 0.9999980031920289,
+      "external_ask": 1.0000039919159354,
+      "external_mid": 1.000000997553982,
+      "external_spread_bps": 0.05988717932377692,
+      "external_bid_size": 9999.960081,
+      "external_ask_size": 9999.960081,
+      "time_delta_ms": 346.805,
+      "mid_deviation_bps": -0.30997523060356935,
+      "mid_abs_deviation_bps": 0.30997523060356935,
+      "flint_bid_vs_external_bid_bps": -0.30003251939681597,
+      "external_ask_vs_flint_ask_bps": 0.31991788226862855,
+      "external_bid_routes": "",
+      "external_ask_routes": ""
+    }
+  ]
+}
