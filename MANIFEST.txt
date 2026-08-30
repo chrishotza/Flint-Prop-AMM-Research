@@ -7,6 +7,9 @@ https://github.com/chrishotza/Flint-Prop-AMM-Research
 Branch:
 main
 
+Current package state:
+PUBLIC RESEARCH PACKAGE
+
 Initial public commit:
 73614a33c3fde5274f71227d66668794bda4b671
 
@@ -21,208 +24,307 @@ on Solana.
 Safety:
 NO TRANSACTIONS WERE SUBMITTED DURING THE RESEARCH.
 
-IMPORTANT:
-This manifest describes the files included in the public commit.
-Temporary files, __pycache__, local virtual environments, backups,
-and private laboratory artifacts are not part of the public package.
 
-FILES
-=====
-
-.gitignore
------------
-139 bytes
-SHA256: D7546605B4AE4564929CD4771460F07BA3533CF96F893692DAC09ADD8510DECD
-
-LICENSE
--------
-364 bytes
-SHA256: 5FBA3C6C3E44D085831BE175567E49AE1089897B9254440A6E957760AC55691C
-
-README.md
----------
-1076 bytes
-SHA256: 2445342FD8569EC118A42EE5C457DB36815E4877DCAE434FDCD71333443E079C
-
-reproduction/README.md
-----------------------
-748 bytes
-SHA256: 2DCE33CB6CAF944D65D0FA39A325BE8AA0969A0F36EF2E3BFEC7CB60A97635DA
-
-research/findings.md
---------------------
-686 bytes
-SHA256: 6EE197772DB9610C7B1F10CB409BBE37E6EDB86088AF775DF107AFC733597DDA
-
-research/limitations.md
------------------------
-316 bytes
-SHA256: 7D3A765BDAAC0372D9BBEC1408A0FC7837AF641B4C2D0E98C8CBF4B2AD2695FF
-
-research/methodology.md
------------------------
-350 bytes
-SHA256: 5E4F4C10C769933FC15A1BC6130B68B8207E31FF95249F4759A1F4B30D6160E8
-
-results/raw/active_liquidity_concentration.json
------------------------------------------------
-47713 bytes
-SHA256: B07A0FF60CB3E16508A1140BFC4FDF8DBF1622568FDA6CB972DED1195ABD4601
-
-results/raw/external_benchmark_summary.json
--------------------------------------------
-2695 bytes
-SHA256: BC151649509F46DA2BCEC8557F49C42DCCCBCC26AF683E53EF9DBE64B0B4DA55
-
-results/raw/fill_ratio_master.json
-----------------------------------
-532 bytes
-SHA256: CA55A7E5003894D3EF34D1BD9D22E89C223DBD3A3CD5F10C24DD421BAC660CC7
-
-results/raw/l2_update_events.jsonl
----------------------------------
-2138 bytes
-SHA256: D84BDFC07A44F865A54EB8DA748CCF77531E70A278A7FD587F7D4756E23115AD
-
-results/raw/maker_attribution.csv
----------------------------------
-121 bytes
-SHA256: 710BACBF80A137C0C5C9E5C8CF9767A2A979F1701F19DB5582D2BDCAC1CEFFCC
-
-results/raw/market_activity_mapping.json
-----------------------------------------
-60616 bytes
-SHA256: 29F00D844EC388EC602528C119279246BC4C00D47857DBBB5DAA98122C8193F1
-
-results/raw/reconstructed_l2_book_result.json
----------------------------------------------
-11362 bytes
-SHA256: F99AF4760E7CABE2D95F95F58A4C3C4D42206F6C6E72357A6AB9677C3849D15B
-
-results/raw/reconstruction_validation_result.json
--------------------------------------------------
-3284 bytes
-SHA256: CAAFF8D2EFCB729067F13B674271EEBF208A25E5E532917813597C930A219DB9
-
-results/raw/stress_pair_summary.json
-------------------------------------
-1147 bytes
-SHA256: AB8EB880238473FF7F8D2F10966A30729E2777DADA6F99AF787BDAD22A1C67B6
-
-results/raw/synchronized_matches.csv
-------------------------------------
-1039 bytes
-SHA256: 22EA79827E596DEBF693E5F9E95C25FB0EF9A9266F57C44600654679B02645DA
-
-results/summaries/EVIDENCE_MATRIX.txt
--------------------------------------
-16111 bytes
-SHA256: F1D8648E5B76907A93EA004A324D09B88A4AFC20D71508A1548D35FFABB37698
-
-results/summaries/FINAL_AUDIT.txt
----------------------------------
-8144 bytes
-SHA256: 27F1C9B2FF2CA9A3BC170248CA121982EC65F6466317615C7C477AA4FBF6FBE1
-
-results/summaries/evidence_matrix.csv
---------------------------------------
-10036 bytes
-SHA256: 780F9C9CB12D96FDA14E2459535B3C092371C3E999A6416B9DB584C2369D1202
-
-results/summaries/evidence_matrix.json
----------------------------------------
-15453 bytes
-SHA256: F37CBA3B119181B610CAE6A3E9AD015F8C11F03136225FFF946BEEBFC56D2DDC
-
-results/summaries/final_audit.csv
----------------------------------
-5207 bytes
-SHA256: 40B1219455323388261A99A63BDA358AC885C13696CD41AD862FE1B0AEE563CF
-
-results/summaries/final_audit.json
-----------------------------------
-10893 bytes
-SHA256: DBCC66C93395CA68023B18756E41AF404757200793F8F2D4844D5138E66C7A37
-
-scripts/probes/README.md
-------------------------
-512 bytes
-SHA256: 2023C43A0DBEE4EE482D9331555D91B6293C0218B4FD71B50A929B6E2AB4A829
-
-scripts/probes/l2_update_forensics_v46.py
------------------------------------------
-12321 bytes
-SHA256: B499DFC7327CFB4AF49D48081F76AECF2BFED1707640A1B75128872084D557E3
-
-scripts/probes/l3_real_attribution_v11.py
------------------------------------------
-15393 bytes
-SHA256: EF0504433D1BFEAFF75B43B696DCBC5C37F64F1FAA3E5D8ADEFC1D5E14D9CB44
-
-scripts/probes/resubscription_semantics_v42.py
-----------------------------------------------
-25123 bytes
-SHA256: 724AB21A83F4B6A16C847E6A1D44656DD03DE80C61FAAE27A343875E1041DDF2
-
-scripts/probes/single_stream_raw_continuity_v45.py
---------------------------------------------------
-20351 bytes
-SHA256: 84FCCE597B8AD01199431B95924CD8A1C13B31135899E167E95A7B6038F26341
-
-scripts/probes/stream_semantics_probe_v22.py
---------------------------------------------
-22628 bytes
-SHA256: 133F7026F2CB43EEA6BB732BA03E54CACF33244D5F9577278211BE5348D2681F
-
-scripts/validation/validate_l2_reconstruction_v412.py
------------------------------------------------------
-34559 bytes
-SHA256: 2F0954F88EF305DD6E45852A888ACDB40F7AD49441844F2F5C3C002A2EB4E1D8
-
-PUBLIC PACKAGE CONTENTS
+PUBLIC REPOSITORY STATE
 =======================
 
-Tracked files in initial public commit:
-31
+This manifest describes the contents and scope of the current
+public research repository.
 
-Top-level directories:
+The repository has received subsequent documentation updates
+after the initial public commit.
+
+Documentation updates include:
+
+- README.md
+- reproduction/README.md
+- research/findings.md
+- results/summaries/FINAL_AUDIT.txt
+- LICENSE
+- MANIFEST.txt
+
+Temporary files, __pycache__ directories, compiled Python files,
+local virtual environments, backups, credentials, and private
+laboratory artifacts are not part of the public package.
+
+
+PUBLIC PACKAGE STRUCTURE
+========================
 
 research/
+    methodology.md
+    findings.md
+    limitations.md
+
 scripts/
+    probes/
+    validation/
+
 results/
+    raw/
+    summaries/
+
 reproduction/
+    README.md
 
-Excluded from the public package:
+LICENSE
+README.md
+MANIFEST.txt
+.gitignore
 
-- __pycache__/
-- *.pyc
-- .venv/
-- local credentials
-- private laboratory artifacts
-- temporary debugging files
-- backup copies
 
-RESEARCH SCOPE
-==============
+RESEARCH ARTIFACTS
+==================
 
-The repository contains independent read-only research into:
+The public repository contains the following canonical evidence
+artifacts.
 
-- observable L2/L3 stream semantics
-- liquidity and depth
-- synthetic execution capacity
-- external quote comparison
-- L2 state reconstruction
-- independent reconstruction validation
-- public maker-level information
+RESULTS / RAW
+-------------
 
-The repository does not claim access to undocumented internal
-Flint implementation.
+results/raw/active_liquidity_concentration.json
+
+results/raw/external_benchmark_summary.json
+
+results/raw/fill_ratio_master.json
+
+results/raw/l2_update_events.jsonl
+
+results/raw/maker_attribution.csv
+
+results/raw/market_activity_mapping.json
+
+results/raw/reconstructed_l2_book_result.json
+
+results/raw/reconstruction_validation_result.json
+
+results/raw/stress_pair_summary.json
+
+results/raw/synchronized_matches.csv
+
+
+RESULTS / SUMMARIES
+-------------------
+
+results/summaries/evidence_matrix.json
+
+results/summaries/evidence_matrix.csv
+
+results/summaries/EVIDENCE_MATRIX.txt
+
+results/summaries/final_audit.json
+
+results/summaries/final_audit.csv
+
+results/summaries/FINAL_AUDIT.txt
+
+
+PUBLIC RESEARCH SCRIPTS
+=======================
+
+LIVE PROBES
+-----------
+
+scripts/probes/l2_update_forensics_v46.py
+
+scripts/probes/l3_real_attribution_v11.py
+
+scripts/probes/resubscription_semantics_v42.py
+
+scripts/probes/single_stream_raw_continuity_v45.py
+
+scripts/probes/stream_semantics_probe_v22.py
+
+scripts/probes/README.md
+
+
+VALIDATION
+----------
+
+scripts/validation/validate_l2_reconstruction_v412.py
+
+
+RUNTIME DEPENDENCY NOTE
+=======================
+
+Several live probes depend on the protobuf and gRPC definitions
+used by the corresponding public Flint API environment.
+
+Relevant modules include:
+
+- api_pb2
+- api_pb2_grpc
+
+Those generated definitions are not included as private laboratory
+artifacts in this repository.
+
+The live probes are therefore environment-dependent research
+scripts.
+
+The offline evidence package can be inspected directly from the
+included results/ artifacts.
+
+
+PUBLICATION SCOPE
+=================
+
+The repository documents independent, read-only research into:
+
+- observable L2/L3 stream semantics;
+- liquidity and depth;
+- synthetic execution capacity;
+- external quote comparison;
+- L2 state reconstruction;
+- independent reconstruction validation;
+- public maker-level information.
+
+
+PRIMARY VALIDATED RESULT
+========================
 
 The strongest reconstruction validation is documented in:
 
 results/raw/reconstruction_validation_result.json
 
-That validation contains three update-driven cases with exact
-matches against independent reference snapshots.
+The v4.12 validation produced:
 
-NO TRANSACTIONS WERE SUBMITTED.
+3 validation cases
+3 validated cases
+3 exact matches
+
+In the validated cases, the observable L2 book was reconstructed
+from an initial snapshot plus sequential L2 updates and compared
+with an independently captured reference snapshot at the
+corresponding update_id.
+
+This validates the reconstruction procedure for the tested cases.
+
+It does not establish universal reconstruction validity across
+all markets, all sessions, or all possible feed gaps.
+
+
+EVIDENCE BOUNDARY
+=================
+
+The research distinguishes between:
+
+- directly demonstrated observations;
+- strongly supported observations;
+- inconclusive findings;
+- claims that should not be made.
+
+The repository does not claim access to undocumented Flint
+implementation.
+
+This includes:
+
+- undocumented matching algorithms;
+- undocumented quoting algorithms;
+- private maker records;
+- inaccessible internal state.
+
+
+MAKER INFORMATION
+=================
+
+Public L3 observations exposed a maker_id field associated with
+observed book entries.
+
+The repository does not identify the real operator behind a
+maker_id.
+
+Private maker fill and markout endpoints required organization
+credentials and were not used as evidence for private fills.
+
+
+SYNTHETIC EXECUTION
+===================
+
+Execution-depth and fill-ratio results are simulations over
+observed public books.
+
+They are not equivalent to real submitted orders.
+
+They should not be interpreted as guarantees of future execution.
+
+
+EXTERNAL BENCHMARK
+==================
+
+External quote comparisons are observational.
+
+The synchronized sample was limited.
+
+The research does not claim systematic superiority or inferiority
+of Flint versus Jupiter, DFlow, or another external venue based
+on this sample alone.
+
+
+REPRODUCIBILITY
+===============
+
+OFFLINE:
+
+Canonical evidence artifacts are included under:
+
+results/raw/
+results/summaries/
+
+LIVE:
+
+Read-only API probes are included under:
+
+scripts/probes/
+
+Live reproduction may require the corresponding Flint API
+protobuf environment.
+
+
+EXCLUDED FROM PUBLIC PACKAGE
+============================
+
+The following are intentionally excluded:
+
+- private laboratory directories;
+- local Windows filesystem paths;
+- private API artifacts;
+- organization credentials;
+- local credentials or secrets;
+- Python virtual environments;
+- __pycache__/;
+- *.pyc files;
+- temporary debugging files;
+- repair scripts;
+- backup copies;
+- unpublished long-run laboratory artifacts.
+
+
+IMPORTANT INTERPRETATION
+========================
+
+This repository is a curated public research package.
+
+It is not a mirror of the complete private research laboratory.
+
+Finite observation windows must not be interpreted as permanent
+market conditions.
+
+Synthetic execution results must not be interpreted as real
+executed trades.
+
+Public API observations must not be interpreted as proof of
+undocumented internal implementation.
+
+The v4.11 snapshot experiment is not treated as update-based
+reconstruction evidence.
+
+The v4.12 experiment is the critical update-driven reconstruction
+validation.
+
+
+SAFETY
+======
+
+All experiments documented in this repository were read-only.
+
+NO TRANSACTIONS WERE SUBMITTED DURING THE RESEARCH.
