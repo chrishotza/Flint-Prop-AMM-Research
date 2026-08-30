@@ -4,17 +4,17 @@ FLINT EVIDENCE FINAL AUDIT v5.5 — PUBLIC REPOSITORY VERSION
 
 DETERMINISTIC OFFLINE AUDIT
 
-This is the public-repository representation of the final evidence audit.
+This document is the public-repository version of the final evidence audit.
 
 No network capture was performed during this audit.
 No transactions were submitted.
 
-The audit distinguishes:
-- public evidence included in this repository;
-- observed research results;
-- validation results;
+The public audit distinguishes:
+- evidence included in this repository;
+- directly observed results;
+- validated reconstruction results;
 - private or inaccessible surfaces;
-- and claims that must not be overstated.
+- and claims that should not be overstated.
 
 ====================================================================================================
 PUBLICATION VERDICT
@@ -22,11 +22,9 @@ PUBLICATION VERDICT
 
 Publication ready: True
 
-Public evidence package:
-VALID
+Public evidence package: VALID
 
-Blocking failures:
-0
+Blocking failures: 0
 
 Interpretation:
 The public repository contains the canonical evidence artifacts required
@@ -186,7 +184,7 @@ PASS | case-level exact matches
   observed: 3
   expected: >= 3
 
-Interpretation:
+INTERPRETATION:
 
 In the three validated update-driven cases, the reconstructed observable
 L2 book matched an independently captured reference snapshot at the
@@ -206,7 +204,7 @@ PASS | v4.11 classified correctly
   observed: 4/4 exact snapshot matches with 0 persistent updates
   expected: treated as snapshot stability, not update reconstruction
 
-Interpretation:
+INTERPRETATION:
 
 The v4.11 experiment is NOT used as evidence of update-based
 reconstruction.
@@ -228,7 +226,7 @@ PASS | external benchmark evidence present
   observed: match/deviation information present
   expected: present
 
-Interpretation:
+INTERPRETATION:
 
 The synchronized sample produced measurable differences between the
 external quotes and Flint observations.
@@ -247,7 +245,7 @@ PASS | public L3 maker attribution artifact present
   observed: maker_id field present
   expected: maker_id present
 
-Interpretation:
+INTERPRETATION:
 
 The public L3 observation exposed a maker_id field associated with
 observed book entries.
@@ -276,12 +274,12 @@ PASS | synthetic fill evidence present
   observed: VALID
   expected: VALID
 
-PASS | execution/depth evidence present
+PASS | stress/depth evidence present
   source: results/raw/stress_pair_summary.json
   observed: VALID
   expected: VALID
 
-Interpretation:
+INTERPRETATION:
 
 The repository contains measurements of observable depth and synthetic
 execution capacity.
@@ -300,9 +298,10 @@ PASS | private maker access limitation documented
   observed: documented
   expected: documented
 
-Interpretation:
+INTERPRETATION:
 
-The absence of a public private-maker result artifact is intentional.
+The absence of private maker fill/markout artifacts from the public
+repository is intentional.
 
 Private maker fill/markout RPCs required organization credentials.
 
@@ -314,10 +313,11 @@ INTERNAL IMPLEMENTATION LIMITATION
 
 PASS | undocumented internals not claimed
   source: research/methodology.md
-  observed: explicitly limited to observable public behavior
+  observed: limited to observable public behavior
   expected: limitation stated
 
 The research does not claim access to:
+
 - undocumented matching algorithms;
 - undocumented quoting algorithms;
 - private maker records;
@@ -346,10 +346,10 @@ entire private laboratory.
 WHAT THIS AUDIT ESTABLISHES
 ====================================================================================================
 
-The public repository provides a reproducible evidence trail for the
-documented observable findings.
+The public repository provides an evidence trail for the documented
+observable findings.
 
-The strongest validated result is:
+The strongest validated reconstruction result is:
 
 3 real update-driven reconstruction cases
 3 validated cases
@@ -378,6 +378,23 @@ It does not establish:
 - undocumented internal Flint implementation;
 - universal reconstruction validity for every market or every possible
   feed failure mode.
+
+====================================================================================================
+PUBLIC REPRODUCIBILITY BOUNDARY
+====================================================================================================
+
+Offline evidence:
+The canonical research artifacts are included under results/.
+
+Live API experiments:
+Scripts under scripts/probes/ depend on the corresponding public
+API/protobuf runtime environment.
+
+The absence of the generated protobuf environment from this repository
+is intentional and documented.
+
+The repository therefore distinguishes offline evidence inspection from
+live API reproduction.
 
 ====================================================================================================
 FINAL STATUS
