@@ -1,59 +1,228 @@
-﻿FLINT PUBLIC RESEARCH REPO v6.9
+FLINT PUBLIC RESEARCH REPO
+==========================
 
-Generated: 2026-08-30T01:55:05.3449670Z
+Repository:
+https://github.com/chrishotza/Flint-Prop-AMM-Research
+
+Branch:
+main
+
+Initial public commit:
+73614a33c3fde5274f71227d66668794bda4b671
+
+Author:
+Chris Hotza <chrishotza@consciouspulse.com>
+
+Package purpose:
+Independent read-only research into Flint's observable
+market-data, liquidity, execution, and multi-maker infrastructure
+on Solana.
+
+Safety:
+NO TRANSACTIONS WERE SUBMITTED DURING THE RESEARCH.
+
+IMPORTANT:
+This manifest describes the files included in the public commit.
+Temporary files, __pycache__, local virtual environments, backups,
+and private laboratory artifacts are not part of the public package.
 
 FILES
-------------------------------------------------------------
-.gitignore | 139 bytes | SHA256=D7546605B4AE4564929CD4771460F07BA3533CF96F893692DAC09ADD8510DECD
-LICENSE | 364 bytes | SHA256=5FBA3C6C3E44D085831BE175567E49AE1089897B9254440A6E957760AC55691C
-README.md | 1076 bytes | SHA256=2445342FD8569EC118A42EE5C457DB36815E4877DCAE434FDCD71333443E079C
-reproduction\README.md | 748 bytes | SHA256=2DCE33CB6CAF944D65D0FA39A325BE8AA0969A0F36EF2E3BFEC7CB60A97635DA
-research\findings.md | 686 bytes | SHA256=6EE197772DB9610C7B1F10CB409BBE37E6EDB86088AF775DF107AFC733597DDA
-research\limitations.md | 316 bytes | SHA256=7D3A765BDAAC0372D9BBEC1408A0FC7837AF641B4C2D0E98C8CBF4B2AD2695FF
-research\methodology.md | 350 bytes | SHA256=5E4F4C10C769933FC15A1BC6130B68B8207E31FF95249F4759A1F4B30D6160E8
-results\raw\active_liquidity_concentration.json | 47713 bytes | SHA256=B07A0FF60CB3E16508A1140BFC4FDF8DBF1622568FDA6CB972DED1195ABD4601
-results\raw\external_benchmark_summary.json | 2695 bytes | SHA256=BC151649509F46DA2BCEC8557F49C42DCCCBCC26AF683E53EF9DBE64B0B4DA55
-results\raw\fill_ratio_master.json | 532 bytes | SHA256=CA55A7E5003894D3EF34D1BD9D22E89C223DBD3A3CD5F10C24DD421BAC660CC7
-results\raw\l2_update_events.jsonl | 2138 bytes | SHA256=D84BDFC07A44F865A54EB8DA748CCF77531E70A278A7FD587F7D4756E23115AD
-results\raw\maker_attribution.csv | 121 bytes | SHA256=710BACBF80A137C0C5C9E5C8CF9767A2A979F1701F19DB5582D2BDCAC1CEFFCC
-results\raw\market_activity_mapping.json | 60616 bytes | SHA256=29F00D844EC388EC602528C119279246BC4C00D47857DBBB5DAA98122C8193F1
-results\raw\reconstructed_l2_book_result.json | 11362 bytes | SHA256=F99AF4760E7CABE2D95F95F58A4C3C4D42206F6C6E72357A6AB9677C3849D15B
-results\raw\reconstruction_validation_result.json | 3284 bytes | SHA256=CAAFF8D2EFCB729067F13B674271EEBF208A25E5E532917813597C930A219DB9
-results\raw\stress_pair_summary.json | 1147 bytes | SHA256=AB8EB880238473FF7F8D2F10966A30729E2777DADA6F99AF787BDAD22A1C67B6
-results\raw\synchronized_matches.csv | 1039 bytes | SHA256=22EA79827E596DEBF693E5F9E95C25FB0EF9A9266F57C44600654679B02645DA
-results\summaries\evidence_matrix.csv | 10036 bytes | SHA256=780F9C9CB12D96FDA14E2459535B3C092371C3E999A6416B9DB584C2369D1202
-results\summaries\evidence_matrix.json | 15453 bytes | SHA256=F37CBA3B119181B610CAE6A3E9AD015F8C11F03136225FFF946BEEBFC56D2DDC
-results\summaries\EVIDENCE_MATRIX.txt | 16111 bytes | SHA256=F1D8648E5B76907A93EA004A324D09B88A4AFC20D71508A1548D35FFABB37698
-results\summaries\final_audit.csv | 5207 bytes | SHA256=40B1219455323388261A99A63BDA358AC885C13696CD41AD862FE1B0AEE563CF
-results\summaries\final_audit.json | 10893 bytes | SHA256=DBCC66C93395CA68023B18756E41AF404757200793F8F2D4844D5138E66C7A37
-results\summaries\FINAL_AUDIT.txt | 8144 bytes | SHA256=27F1C9B2FF2CA9A3BC170248CA121982EC65F6466317615C7C477AA4FBF6FBE1
-scripts\probes\l2_update_forensics_v46.py | 12321 bytes | SHA256=B499DFC7327CFB4AF49D48081F76AECF2BFED1707640A1B75128872084D557E3
-scripts\probes\l3_real_attribution_v11.py | 15393 bytes | SHA256=EF0504433D1BFEAFF75B43B696DCBC5C37F64F1FAA3E5D8ADEFC1D5E14D9CB44
-scripts\probes\README.md | 512 bytes | SHA256=2023C43A0DBEE4EE482D9331555D91B6293C0218B4FD71B50A929B6E2AB4A829
-scripts\probes\resubscription_semantics_v42.py | 25123 bytes | SHA256=724AB21A83F4B6A16C847E6A1D44656DD03DE80C61FAAE27A343875E1041DDF2
-scripts\probes\single_stream_raw_continuity_v45.py | 20351 bytes | SHA256=84FCCE597B8AD01199431B95924CD8A1C13B31135899E167E95A7B6038F26341
-scripts\probes\stream_semantics_probe_v22.py | 22628 bytes | SHA256=133F7026F2CB43EEA6BB732BA03E54CACF33244D5F9577278211BE5348D2681F
-scripts\probes\__pycache__\l2_update_forensics_v46.cpython-312.pyc | 12867 bytes | SHA256=3DCB30FD02C75AF48A7A5E8BBE0BE13090920B2AC7D3DD0031A701A41C8A21FB
-scripts\probes\__pycache__\l3_real_attribution_v11.cpython-312.pyc | 14249 bytes | SHA256=C8C4F3E2061097FE8AF3D6BB7A887FEF74382DFBF545C483CF4893AC4C16A07F
-scripts\probes\__pycache__\resubscription_semantics_v42.cpython-312.pyc | 23432 bytes | SHA256=4C83F81B7C0E738A3D06E071C8D8BD5832B188EB8F5ABF1C150387CAF1AE068F
-scripts\probes\__pycache__\single_stream_raw_continuity_v45.cpython-312.pyc | 19743 bytes | SHA256=609FF15A908868D81C883DA72064B3726A726FB2F69D8CAF7CB0FE452DF37A62
-scripts\probes\__pycache__\stream_semantics_probe_v22.cpython-312.pyc | 19483 bytes | SHA256=9740E03045E6B74C1811B96BC3319D635DB012203CA1FB2A56B03AA78A4CE26D
-scripts\validation\validate_l2_reconstruction_v412.py | 34559 bytes | SHA256=2F0954F88EF305DD6E45852A888ACDB40F7AD49441844F2F5C3C002A2EB4E1D8
-scripts\validation\__pycache__\validate_l2_reconstruction_v412.cpython-312.pyc | 28553 bytes | SHA256=CB9FBA0B566A0E409CEF2B31B56A1D7514772907DE691840B5905D697685F916
+=====
 
-PRIVATE PATH HITS
-------------------------------------------------------------
-NONE
+.gitignore
+-----------
+139 bytes
+SHA256: D7546605B4AE4564929CD4771460F07BA3533CF96F893692DAC09ADD8510DECD
 
-PROTOBUF-DEPENDENT SCRIPTS
-------------------------------------------------------------
-scripts\probes\l2_update_forensics_v46.py
-scripts\probes\l3_real_attribution_v11.py
-scripts\probes\resubscription_semantics_v42.py
-scripts\probes\single_stream_raw_continuity_v45.py
-scripts\probes\stream_semantics_probe_v22.py
-scripts\validation\validate_l2_reconstruction_v412.py
+LICENSE
+-------
+364 bytes
+SHA256: 5FBA3C6C3E44D085831BE175567E49AE1089897B9254440A6E957760AC55691C
 
-PYTHON SYNTAX FAILURES
-------------------------------------------------------------
-NONE
+README.md
+---------
+1076 bytes
+SHA256: 2445342FD8569EC118A42EE5C457DB36815E4877DCAE434FDCD71333443E079C
+
+reproduction/README.md
+----------------------
+748 bytes
+SHA256: 2DCE33CB6CAF944D65D0FA39A325BE8AA0969A0F36EF2E3BFEC7CB60A97635DA
+
+research/findings.md
+--------------------
+686 bytes
+SHA256: 6EE197772DB9610C7B1F10CB409BBE37E6EDB86088AF775DF107AFC733597DDA
+
+research/limitations.md
+-----------------------
+316 bytes
+SHA256: 7D3A765BDAAC0372D9BBEC1408A0FC7837AF641B4C2D0E98C8CBF4B2AD2695FF
+
+research/methodology.md
+-----------------------
+350 bytes
+SHA256: 5E4F4C10C769933FC15A1BC6130B68B8207E31FF95249F4759A1F4B30D6160E8
+
+results/raw/active_liquidity_concentration.json
+-----------------------------------------------
+47713 bytes
+SHA256: B07A0FF60CB3E16508A1140BFC4FDF8DBF1622568FDA6CB972DED1195ABD4601
+
+results/raw/external_benchmark_summary.json
+-------------------------------------------
+2695 bytes
+SHA256: BC151649509F46DA2BCEC8557F49C42DCCCBCC26AF683E53EF9DBE64B0B4DA55
+
+results/raw/fill_ratio_master.json
+----------------------------------
+532 bytes
+SHA256: CA55A7E5003894D3EF34D1BD9D22E89C223DBD3A3CD5F10C24DD421BAC660CC7
+
+results/raw/l2_update_events.jsonl
+---------------------------------
+2138 bytes
+SHA256: D84BDFC07A44F865A54EB8DA748CCF77531E70A278A7FD587F7D4756E23115AD
+
+results/raw/maker_attribution.csv
+---------------------------------
+121 bytes
+SHA256: 710BACBF80A137C0C5C9E5C8CF9767A2A979F1701F19DB5582D2BDCAC1CEFFCC
+
+results/raw/market_activity_mapping.json
+----------------------------------------
+60616 bytes
+SHA256: 29F00D844EC388EC602528C119279246BC4C00D47857DBBB5DAA98122C8193F1
+
+results/raw/reconstructed_l2_book_result.json
+---------------------------------------------
+11362 bytes
+SHA256: F99AF4760E7CABE2D95F95F58A4C3C4D42206F6C6E72357A6AB9677C3849D15B
+
+results/raw/reconstruction_validation_result.json
+-------------------------------------------------
+3284 bytes
+SHA256: CAAFF8D2EFCB729067F13B674271EEBF208A25E5E532917813597C930A219DB9
+
+results/raw/stress_pair_summary.json
+------------------------------------
+1147 bytes
+SHA256: AB8EB880238473FF7F8D2F10966A30729E2777DADA6F99AF787BDAD22A1C67B6
+
+results/raw/synchronized_matches.csv
+------------------------------------
+1039 bytes
+SHA256: 22EA79827E596DEBF693E5F9E95C25FB0EF9A9266F57C44600654679B02645DA
+
+results/summaries/EVIDENCE_MATRIX.txt
+-------------------------------------
+16111 bytes
+SHA256: F1D8648E5B76907A93EA004A324D09B88A4AFC20D71508A1548D35FFABB37698
+
+results/summaries/FINAL_AUDIT.txt
+---------------------------------
+8144 bytes
+SHA256: 27F1C9B2FF2CA9A3BC170248CA121982EC65F6466317615C7C477AA4FBF6FBE1
+
+results/summaries/evidence_matrix.csv
+--------------------------------------
+10036 bytes
+SHA256: 780F9C9CB12D96FDA14E2459535B3C092371C3E999A6416B9DB584C2369D1202
+
+results/summaries/evidence_matrix.json
+---------------------------------------
+15453 bytes
+SHA256: F37CBA3B119181B610CAE6A3E9AD015F8C11F03136225FFF946BEEBFC56D2DDC
+
+results/summaries/final_audit.csv
+---------------------------------
+5207 bytes
+SHA256: 40B1219455323388261A99A63BDA358AC885C13696CD41AD862FE1B0AEE563CF
+
+results/summaries/final_audit.json
+----------------------------------
+10893 bytes
+SHA256: DBCC66C93395CA68023B18756E41AF404757200793F8F2D4844D5138E66C7A37
+
+scripts/probes/README.md
+------------------------
+512 bytes
+SHA256: 2023C43A0DBEE4EE482D9331555D91B6293C0218B4FD71B50A929B6E2AB4A829
+
+scripts/probes/l2_update_forensics_v46.py
+-----------------------------------------
+12321 bytes
+SHA256: B499DFC7327CFB4AF49D48081F76AECF2BFED1707640A1B75128872084D557E3
+
+scripts/probes/l3_real_attribution_v11.py
+-----------------------------------------
+15393 bytes
+SHA256: EF0504433D1BFEAFF75B43B696DCBC5C37F64F1FAA3E5D8ADEFC1D5E14D9CB44
+
+scripts/probes/resubscription_semantics_v42.py
+----------------------------------------------
+25123 bytes
+SHA256: 724AB21A83F4B6A16C847E6A1D44656DD03DE80C61FAAE27A343875E1041DDF2
+
+scripts/probes/single_stream_raw_continuity_v45.py
+--------------------------------------------------
+20351 bytes
+SHA256: 84FCCE597B8AD01199431B95924CD8A1C13B31135899E167E95A7B6038F26341
+
+scripts/probes/stream_semantics_probe_v22.py
+--------------------------------------------
+22628 bytes
+SHA256: 133F7026F2CB43EEA6BB732BA03E54CACF33244D5F9577278211BE5348D2681F
+
+scripts/validation/validate_l2_reconstruction_v412.py
+-----------------------------------------------------
+34559 bytes
+SHA256: 2F0954F88EF305DD6E45852A888ACDB40F7AD49441844F2F5C3C002A2EB4E1D8
+
+PUBLIC PACKAGE CONTENTS
+=======================
+
+Tracked files in initial public commit:
+31
+
+Top-level directories:
+
+research/
+scripts/
+results/
+reproduction/
+
+Excluded from the public package:
+
+- __pycache__/
+- *.pyc
+- .venv/
+- local credentials
+- private laboratory artifacts
+- temporary debugging files
+- backup copies
+
+RESEARCH SCOPE
+==============
+
+The repository contains independent read-only research into:
+
+- observable L2/L3 stream semantics
+- liquidity and depth
+- synthetic execution capacity
+- external quote comparison
+- L2 state reconstruction
+- independent reconstruction validation
+- public maker-level information
+
+The repository does not claim access to undocumented internal
+Flint implementation.
+
+The strongest reconstruction validation is documented in:
+
+results/raw/reconstruction_validation_result.json
+
+That validation contains three update-driven cases with exact
+matches against independent reference snapshots.
+
+NO TRANSACTIONS WERE SUBMITTED.
