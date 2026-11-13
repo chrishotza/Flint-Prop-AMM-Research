@@ -92,10 +92,10 @@ Reconstructed observable book
 Independent reference snapshot
         ↓
 Exact comparison
+```
 
+## Offline archive consistency gate
 
-## Offline archive consistency gate (new)
-
-Run `python scripts/validation/audit_archived_reconstruction.py` to check the archived v4.12 case records, monotonic update identifiers, per-case provenance, digest equality for declared exact matches, and summary counts. `python -m unittest discover -s tests -v` exercises corrupted synthetic copies. This gate requires only Python's standard library and makes **no API calls or transactions**.
+Run `python scripts/validation/audit_archived_reconstruction.py` to check the archived v4.12 case records, monotonic update identifiers, per-case provenance, matching update slots/timestamps, completeness of the observed update prefix, digest equality for declared exact matches, and summary counts. `python -m unittest discover -s tests -v` exercises corrupted synthetic copies. This gate requires only Python's standard library and makes **no API calls or transactions**.
 
 **Limit:** A consistent archive is not an independent reproduction of the live feed. The source wire messages and independently acquired reference snapshots are required to reproduce the original validation scientifically. This audit cannot establish genuine price history or market-wide generalization.

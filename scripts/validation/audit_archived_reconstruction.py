@@ -6,6 +6,7 @@ This does NOT replay wire events or independently verify the observed market.
 from __future__ import annotations
 import argparse
 import json
+import math
 from pathlib import Path
 import re
 
@@ -34,6 +35,28 @@ def check_archived_result(payload: dict) -> dict:
         raise ValueError("Non-integer update identifier")
     if len(set(ids)) != len(ids) or ids != sorted(ids):
         raise ValueError("Update identifiers must be unique and increasing")
+    update_by_id = {}
+    previous_slot = None
+    previous_elapsed = None
+    for update in updates:
+        identifier = update["update_id"]
+        slot = update.get("slot")
+        elapsed = update.get("elapsed")
+        if type(slot) is not int or slot < 0:
+            raise ValueError("Update slot must be a nonnegative integer")
+        if type(elapsed) not in (int, float):
+            raise ValueError("Update elapsed must be a finite nonnegative number")
+        try:
+            valid_elapsed = math.isfinite(elapsed)
+        except OverflowError:
+            valid_elapsed = False
+        if not valid_elapsed or elapsed < 0:
+            raise ValueError("Update elapsed must be a finite nonnegative number")
+        if (previous_slot is not None and slot < previous_slot
+                or previous_elapsed is not None and elapsed < previous_elapsed):
+            raise ValueError("Update slot and elapsed must be nondecreasing")
+        update_by_id[identifier] = update
+        previous_slot, previous_elapsed = slot, elapsed
     seen_cases: set[int] = set()
     validated = exact = 0
     for c in cases:
@@ -48,10 +71,32 @@ def check_archived_result(payload: dict) -> dict:
         if (any(type(x) is not int or x not in ids for x in used)
                 or used != sorted(set(used)) or used[-1] != source_id):
             raise ValueError(f"Case {number}: invalid or out-of-order provenance")
+        # Reconstructing from the initial snapshot requires every archived
+        # update up through the case's claimed source, not a selected subset.
+        if used != ids[:ids.index(source_id) + 1]:
+            raise ValueError(f"Case {number}: omitted source updates")
+        source = update_by_id[source_id]
+        if c.get("source_slot") != source["slot"] or type(c.get("source_slot")) is not int:
+            raise ValueError(f"Case {number}: source slot conflicts with update")
+        elapsed = c.get("source_elapsed")
+        if type(elapsed) not in (int, float):
+            raise ValueError(f"Case {number}: source elapsed conflicts with update")
+        try:
+            elapsed_matches = math.isfinite(elapsed) and math.isclose(
+                elapsed, source["elapsed"], rel_tol=0, abs_tol=1e-6
+            )
+        except OverflowError:
+            elapsed_matches = False
+        if not elapsed_matches:
+            raise ValueError(f"Case {number}: source elapsed conflicts with update")
+        if c.get("status") != "VALIDATED":
+            raise ValueError(f"Case {number}: unsupported archive case status")
         if c.get("status") == "VALIDATED":
             validated += 1
             if c.get("reference_update_id") != source_id:
                 raise ValueError(f"Case {number}: reference is from a different update")
+            if type(c.get("reference_slot")) is not int or c["reference_slot"] != source["slot"]:
+                raise ValueError(f"Case {number}: reference slot differs from observed update")
             match = c.get("comparison")
             if not isinstance(match, dict):
                 raise ValueError(f"Case {number}: no comparison")
