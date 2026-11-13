@@ -20,6 +20,45 @@ class ArchivedEvidenceTests(unittest.TestCase):
         self.assertEqual(check_archived_result(archive()),
                          {"cases": 3, "validated": 3, "exact_matches": 3})
 
+    def test_rejects_nonobject_case_and_update_records(self):
+        for section in ("cases", "persistent_updates"):
+            with self.subTest(section=section):
+                record = archive()
+                record[section][0] = None
+                with self.assertRaisesRegex(ValueError, "must be objects"):
+                    check_archived_result(record)
+
+    def test_rejects_boolean_ids_disguised_as_integers(self):
+        bad_number = archive()
+        bad_number["cases"][0]["case"] = True
+        with self.assertRaisesRegex(ValueError, "invalid case number"):
+            check_archived_result(bad_number)
+        bad_source = archive()
+        bad_source["cases"][0]["source_update_id"] = True
+        with self.assertRaisesRegex(ValueError, "source update"):
+            check_archived_result(bad_source)
+        bad_used = archive()
+        bad_used["cases"][0]["used_update_ids"] = [True]
+        with self.assertRaisesRegex(ValueError, "provenance"):
+            check_archived_result(bad_used)
+
+    def test_rejects_fabricated_or_malformed_exact_sha256(self):
+        record = archive()
+        record["cases"][0]["reconstructed_digest"] = "fabricated"
+        record["cases"][0]["reference_digest"] = "fabricated"
+        with self.assertRaisesRegex(ValueError, "SHA256 digest"):
+            check_archived_result(record)
+
+    def test_rejects_null_diff_lists_and_boolean_summary(self):
+        record = archive()
+        record["cases"][0]["comparison"]["bid_differences"] = None
+        with self.assertRaisesRegex(ValueError, "level differences structure"):
+            check_archived_result(record)
+        bad_summary = archive()
+        bad_summary["summary"]["validated"] = True
+        with self.assertRaisesRegex(ValueError, "Summary counts"):
+            check_archived_result(bad_summary)
+
     def test_detects_summary_overstatement(self):
         fixture = archive()
         fixture["summary"]["exact_matches"] += 1

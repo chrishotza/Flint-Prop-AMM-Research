@@ -7,6 +7,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[2]
 ARCHIVE = ROOT / "results" / "raw" / "reconstruction_validation_result.json"
@@ -23,6 +24,11 @@ def check_archived_result(payload: dict) -> dict:
         raise ValueError("Missing cases, persistent_updates, or summary")
     if not cases or not updates:
         raise ValueError("No observed update-driven validation cases")
+    if any(not isinstance(item, dict) for item in cases + updates):
+        raise ValueError("Case and update entries must be objects")
+    if any(type(summary.get(key)) is not int or summary[key] < 0
+           for key in ("cases", "validated", "exact_matches")):
+        raise ValueError("Summary counts must be nonnegative integers")
     ids = [u.get("update_id") for u in updates]
     if any(not isinstance(x, int) or isinstance(x, bool) for x in ids):
         raise ValueError("Non-integer update identifier")
@@ -32,14 +38,15 @@ def check_archived_result(payload: dict) -> dict:
     validated = exact = 0
     for c in cases:
         number = c.get("case")
-        if not isinstance(number, int) or number in seen_cases:
+        if type(number) is not int or number < 1 or number in seen_cases:
             raise ValueError("Duplicate or invalid case number")
         seen_cases.add(number)
         source_id = c.get("source_update_id")
         used = c.get("used_update_ids")
-        if source_id not in ids or not isinstance(used, list) or not used:
+        if type(source_id) is not int or source_id not in ids or not isinstance(used, list) or not used:
             raise ValueError(f"Case {number}: missing observed source update")
-        if any(x not in ids for x in used) or used != sorted(set(used)) or used[-1] != source_id:
+        if (any(type(x) is not int or x not in ids for x in used)
+                or used != sorted(set(used)) or used[-1] != source_id):
             raise ValueError(f"Case {number}: invalid or out-of-order provenance")
         if c.get("status") == "VALIDATED":
             validated += 1
@@ -48,11 +55,22 @@ def check_archived_result(payload: dict) -> dict:
             match = c.get("comparison")
             if not isinstance(match, dict):
                 raise ValueError(f"Case {number}: no comparison")
-            digest_equal = c.get("reconstructed_digest") == c.get("reference_digest")
+            reconstructed = c.get("reconstructed_digest")
+            reference = c.get("reference_digest")
+            digest_equal = reconstructed == reference
             if match.get("exact_match") is True:
-                if not digest_equal or not c.get("reconstructed_digest"):
+                if not (isinstance(reconstructed, str)
+                        and isinstance(reference, str)
+                        and re.fullmatch(r"[a-fA-F0-9]{64}", reconstructed)
+                        and re.fullmatch(r"[a-fA-F0-9]{64}", reference)):
+                    raise ValueError(f"Case {number}: invalid SHA256 digest")
+                if not digest_equal:
                     raise ValueError(f"Case {number}: exact match contradicted by digests")
-                if match.get("bid_differences") or match.get("ask_differences"):
+                bids = match.get("bid_differences")
+                asks = match.get("ask_differences")
+                if not isinstance(bids, list) or not isinstance(asks, list):
+                    raise ValueError(f"Case {number}: invalid level differences structure")
+                if bids or asks:
                     raise ValueError(f"Case {number}: exact match has level differences")
                 exact += 1
             elif match.get("exact_match") is not False:
