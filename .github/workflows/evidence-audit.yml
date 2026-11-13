@@ -1,0 +1,33 @@
+name: Archived evidence consistency (offline)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/validation/audit_archived_reconstruction.py"
+      - "results/raw/reconstruction_validation_result.json"
+      - "tests/test_archive_consistency.py"
+      - ".github/workflows/evidence-audit.yml"
+  pull_request:
+    paths:
+      - "scripts/validation/audit_archived_reconstruction.py"
+      - "results/raw/reconstruction_validation_result.json"
+      - "tests/test_archive_consistency.py"
+      - ".github/workflows/evidence-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify archive internal consistency (no API access)
+        run: python scripts/validation/audit_archived_reconstruction.py
+      - name: Test manipulated and inconsistent evidence cases
+        run: python -m unittest discover -s tests -p "test_*.py" -v
