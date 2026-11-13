@@ -84,5 +84,52 @@ class ArchivedEvidenceTests(unittest.TestCase):
             check_archived_result(fixture)
 
 
+    def test_detects_case_slot_and_elapsed_metadata_tampering(self):
+        for field, mutated, message in (
+            ("source_slot", 123456, "source slot"),
+            ("reference_slot", 123456, "reference slot"),
+            ("source_elapsed", 0, "source elapsed"),
+            ("source_elapsed", float("inf"), "source elapsed"),
+            ("source_elapsed", True, "source elapsed"),
+        ):
+            with self.subTest(field=field, mutated=mutated):
+                fixture = archive()
+                fixture["cases"][1][field] = mutated
+                with self.assertRaisesRegex(ValueError, message):
+                    check_archived_result(fixture)
+
+    def test_detects_corrupt_update_timing_and_slot(self):
+        for field, changed, message in (
+            ("slot", True, "Update slot"),
+            ("slot", -1, "Update slot"),
+            ("slot", 1, "nondecreasing"),
+            ("elapsed", float("nan"), "Update elapsed"),
+            ("elapsed", -1, "Update elapsed"),
+            ("elapsed", 1, "nondecreasing"),
+        ):
+            with self.subTest(field=field, changed=changed):
+                fixture = archive()
+                fixture["persistent_updates"][1][field] = changed
+                with self.assertRaisesRegex(ValueError, message):
+                    check_archived_result(fixture)
+
+    def test_detects_missing_intermediate_replay_updates(self):
+        fixture = archive()
+        updates = fixture["persistent_updates"]
+        fixture["cases"][2]["used_update_ids"] = [
+            updates[0]["update_id"], updates[2]["update_id"]
+        ]
+        with self.assertRaisesRegex(ValueError, "omitted source updates"):
+            check_archived_result(fixture)
+
+    def test_rejects_unsupported_status_even_if_summary_rewritten(self):
+        fixture = archive()
+        fixture["cases"][0]["status"] = "PENDING"
+        fixture["summary"]["validated"] -= 1
+        fixture["summary"]["exact_matches"] -= 1
+        with self.assertRaisesRegex(ValueError, "unsupported archive case status"):
+            check_archived_result(fixture)
+
+
 if __name__ == "__main__":
     unittest.main()
